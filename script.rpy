@@ -5,8 +5,9 @@ init -2:
     # name of the character.
 
     # Main female character. Brass/copper skin. Black hair.
-    define g = Character("The Girl", show_two_window=True)
-    define pa = Character(_("P. A."), color="#ffeeee", show_two_window=True)
+    define g = Character("The Girl", who_color="#fc4a1e")
+    define mc = Character("You", who_color="#2370ff")
+    define pa = Character(_("P. A."), who_color="#e8ef26")
     define n = Character(None, kind=nvl, say_thought_color = "#FFF")
 
     python:
@@ -24,7 +25,7 @@ label language_chooser:
     scene black
 
     menu:
-        "Will restart the game, so make sure to save."
+        "*Will restart the game, so make sure to save.*"
         "English":
             $ renpy.change_language(None)
             stop ambient

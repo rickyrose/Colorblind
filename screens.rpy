@@ -1,5 +1,5 @@
 #########################################
-
+#
 # This file is in the public domain. Feel free to modify it and use it anyway you want.
 #
 #########################################
@@ -72,8 +72,6 @@ style vslider:
 style frame:
     padding gui.frame_borders.padding
     background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
-
-
 
 init:
     transform trans30:
@@ -268,33 +266,29 @@ init -2:
 
 python:
     class TrackCursor(renpy.Displayable):
+        def __init__(self, child):
+            super(TrackCursor, self).init()
 
-            def __init__(self, child):
+            self.child = renpy.displayable(child)
 
-                super(TrackCursor, self).init()
+            self.x = None
+            self.y = None
 
-                self.child = renpy.displayable(child)
+        def render(self, width, height, st, at):
+            rv = renpy.Render(width, height)
 
-                self.x = None
-                self.y = None
+            if self.x is not None:
+                cr = renpy.render(self.child, width, height, st, at)
+                cw, ch = cr.get_size()
+                rv.blit(cr, (self.x - cw / 2, self.y - ch / 2))
 
-            def render(self, width, height, st, at):
+            return rv
 
-                rv = renpy.Render(width, height)
-
-                if self.x is not None:
-                    cr = renpy.render(self.child, width, height, st, at)
-                    cw, ch = cr.get_size()
-                    rv.blit(cr, (self.x - cw / 2, self.y - ch / 2))
-
-                return rv
-
-            def event(self, ev, x, y, st):
-
-                if (x != self.x) or (y != self.y):
-                    self.x = x
-                    self.y = y
-                    renpy.redraw(self, 0)
+        def event(self, ev, x, y, st):
+            if (x != self.x) or (y != self.y):
+                self.x = x
+                self.y = y
+                renpy.redraw(self, 0)
 
 ## ■██▓▒░ SAVE / LOAD SLOT ░▒▓██████████████████████████████■
 ## This represents a load/save slot. You should customize this to ensure that the placement of the thumbnail and the slot text are as desired. Positions (x1, y1, x2 and y2) are relative to the x, y parameters, that are passed when the screen is called. To set the screenshot thumbnail size see options.rpy.
@@ -417,15 +411,11 @@ screen say(who, what):
         id "window"
 
         if who is not None:
-
             window:
                 id "namebox"
                 style "namebox"
                 text who id "who"
-
         text what id "what"
-
-
     ## If there's a side image, display it above the text. Do not display on the
     ## phone variant - there's no room.
     if not renpy.variant("small"):
@@ -706,9 +696,7 @@ screen Settings():
     tag menu
 
     use game_menu(_("Settings"), scroll="viewport"):
-
         vbox:
-
             hbox:
                 box_wrap True
 
@@ -879,9 +867,7 @@ screen history():
         style_prefix "history"
 
         for h in _history_list:
-
             window:
-
                 ## This lays things out properly if history_height is None.
                 has fixed:
                     yfit True
@@ -1106,10 +1092,7 @@ style help_label_text:
     xalign 1.0
     text_align 1.0
 
-
 ## Help game stuff
-
-
 init -2 python:
     #declares a new style called "gamehelp"
     style.gamehelp = Style(style.default)
@@ -1125,8 +1108,7 @@ init -2 python:
     style.gamehelp_button_text.outlines = [ (1, "#000", 1, 1) ]
     style.gamehelp_button.top_padding = 5
     style.gamehelp_button.bottom_padding = 5
-
-
+    
 ##############################################################################
 # Quick Menu
 #

@@ -11,7 +11,7 @@ init -2:
     define n = Character(None, kind=nvl, say_thought_color = "#FFF")
     
 init python:
-     config.gestures = { "n_s" : "hide_windows", "e" : "toggle_skip", "w_e" : "game_menu", "w" : "rollback" }
+    config.gestures = { "n_s" : "hide_windows", "e" : "toggle_skip", "w_e" : "game_menu", "w" : "rollback" }
 
     python:
         def rename(character, actor=None):

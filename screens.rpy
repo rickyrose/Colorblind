@@ -22,7 +22,6 @@ style hyperlink_text:
 style gui_text:
     properties gui.text_properties("interface")
 
-
 style button:
     properties gui.button_properties("button")
 
@@ -30,13 +29,11 @@ style button_text is gui_text:
     properties gui.text_properties("button")
     yalign 0.5
 
-
 style label_text is gui_text:
     properties gui.text_properties("label", accent=True)
 
 style prompt_text is gui_text:
     properties gui.text_properties("prompt")
-
 
 style bar:
     ysize gui.bar_size
@@ -68,7 +65,6 @@ style vslider:
     base_bar Frame("gui/slider/vertical_[prefix_]bar.png", gui.vslider_borders, tile=gui.slider_tile)
     thumb "gui/slider/vertical_[prefix_]thumb.png"
 
-
 style frame:
     padding gui.frame_borders.padding
     background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
@@ -93,6 +89,7 @@ screen main_menu:
     imagebutton:
         background "gui/MainStart-Inactive.png"
         hover "gui/MainStart-Hover.png"
+        idle Null(width=281, height=75)
         xpos x
         ypos y
         focus_mask None
@@ -100,18 +97,63 @@ screen main_menu:
         hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_main_menu_start") ]
         unhovered [Hide("gui_tooltip")] at main_eff1
     $ y+=90
-    imagebutton auto "gui/main_load_%s.png" xpos x ypos y focus_mask None  action ShowMenu('load') hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_load") ] unhovered [Hide("gui_tooltip")] at main_eff2
+    imagebutton:
+        background "gui/MainLoadStart-Inactive.png"
+        hover "gui/MainLoadStart-Hover.png"
+        idle Null(width=281, height=75)
+        xpos x
+        ypos y
+        focus_mask None
+        action ShowMenu('load')
+        hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_load") ]
+        unhovered [Hide("gui_tooltip")] at main_eff2
     $ y+=90
-    imagebutton auto "gui/main_config_%s.png" xpos x ypos y focus_mask None action ShowMenu('preferences') hovered [ Play ("test_three", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_config") ] unhovered [Hide("gui_tooltip")] at main_eff3
+    imagebutton:
+        background "gui/MainOptionsStart-Inactive.png"
+        hover "gui/MainOptionsStart-Hover.png"
+        idle Null(width=281, height=75)
+        xpos x
+        ypos y
+        focus_mask None
+        action ShowMenu('preferences')
+        hovered [ Play ("test_three", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_config") ]
+        unhovered [Hide("gui_tooltip")] at main_eff3
     $ y+=90
     # if persistent.extra_unlocked: # We only show the extras, if they have been unlocked. Because we are using a variable (y) for ypos, we don't need to worry about positioning the rest of the button(s).
-    imagebutton auto "gui/main_extras_%s.png" xpos x ypos y focus_mask None action ShowMenu('extras_blank') hovered [ Play ("test_four", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_main_menu_extras") ] unhovered [Hide("gui_tooltip")] at main_eff4
+    imagebutton:
+        background "gui/MainExtrasStart-Inactive.png"
+        hover "gui/MainExtrasStart-Hover.png"
+        idle Null(width=281, height=75)
+        xpos x
+        ypos y
+        focus_mask None
+        action ShowMenu('extras_blank')
+        hovered [ Play ("test_four", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_main_menu_extras") ]
+        unhovered [Hide("gui_tooltip")] at main_eff4
     $ y+=90
 
-    imagebutton auto "gui/main_help_%s.png" xpos x ypos y focus_mask None action ShowMenu('help') hovered [ Play ("test_five", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_main_menu_help") ] unhovered [Hide("gui_tooltip")] at main_eff4
+    imagebutton:
+        background "gui/MainHelpStart-Inactive.png"
+        hover "gui/MainHelpStart-Hover.png"
+        idle Null(width=281, height=75)
+        xpos x
+        ypos y
+        focus_mask None
+        action ShowMenu('help')
+        hovered [ Play ("test_five", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_main_menu_help") ]
+        unhovered [Hide("gui_tooltip")] at main_eff4
     $ y+=90
 
-    imagebutton auto "gui/main_quit_%s.png" xpos x ypos y focus_mask None action Quit(confirm=False) hovered [ Play ("test_six", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_quit") ] unhovered [Hide("gui_tooltip")] at main_eff5
+    imagebutton:
+        background "gui/MainQuitStart-Inactive.png"
+        hover "gui/MainQuitStart-Hover.png"
+        idle Null(width=281, height=75)
+        xpos x
+        ypos y
+        focus_mask None
+        action Quit(confirm=False)
+        hovered [ Play ("test_six", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_quit") ]
+        unhovered [Hide("gui_tooltip")] at main_eff5
 
 # The code below defines the ATL transform effects for each button on the main menu. These effects are triggered when the buttons are shown.
 # ATL transform properties: http://www.renpy.org/wiki/renpy/doc/reference/Animation_and_Transformation_Language#Transform_Properties

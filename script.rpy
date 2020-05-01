@@ -12,17 +12,15 @@ init -2:
     
 init python:
     config.gestures = { "n_s" : "hide_windows", "e" : "toggle_skip", "w_e" : "game_menu", "w" : "rollback" }
-
-    python:
-        def rename(character, actor=None):
-            replace = renpy.input("What is their name?", default=character.name, length=25)
-            replace = replace.strip()
-            if not replace:
-                pass
-            else:
-                character.name = replace
-                if actor:
-                    actor.name = replace
+    def rename(character, actor=None):
+        replace = renpy.input("What is their name?", default=character.name, length=25)
+        replace = replace.strip()
+        if not replace:
+            pass
+        else:
+            character.name = replace
+            if actor:
+                actor.name = replace
 
 label language_chooser:
     scene black

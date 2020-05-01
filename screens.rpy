@@ -90,7 +90,15 @@ screen main_menu:
     add "gui/main_menu_title.png"
     $ x = 995
     $ y=110
-    imagebutton auto "gui/main_start_%s.png" xpos x ypos y focus_mask None action Start() hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_main_menu_start") ] unhovered [Hide("gui_tooltip")] at main_eff1
+    imagebutton:
+        background "gui/MainStart-Inactive.png"
+        hover "gui/MainStart-Hover.png"
+        xpos x
+        ypos y
+        focus_mask None
+        action Start()
+        hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_main_menu_start") ]
+        unhovered [Hide("gui_tooltip")] at main_eff1
     $ y+=90
     imagebutton auto "gui/main_load_%s.png" xpos x ypos y focus_mask None  action ShowMenu('load') hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_load") ] unhovered [Hide("gui_tooltip")] at main_eff2
     $ y+=90

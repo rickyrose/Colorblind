@@ -5,87 +5,26 @@ init -2:
     # name of the character.
 
     # Main female character. Brass/copper skin. Black hair.
-    define g = Character("The Girl", who_color="#fc4a1e")
-    define mc = Character("You", who_color="#2370ff")
-    define pa = Character(_("P. A."), who_color="#e8ef26")
+    define g = Character("The Girl", show_two_window=True)
+    define pa = Character(_("P. A."), color="#ffeeee", show_two_window=True)
     define n = Character(None, kind=nvl, say_thought_color = "#FFF")
 
-init python:
-    config.gestures = { "n_s" : "hide_windows", "e" : "toggle_skip", "w_e" : "game_menu", "w" : "rollback" }
-
-
-label start:
     python:
-        girl = Actor("The Girl", 100, [Punch, Kick, Magic, Defend, Inventory_sk, Flee], max_mp=50)
-        hers = CharStats(strength=40)
-        boy = CharStats(intelligence=40) #For later use
-
-        ramen = Item("Ramen", hp=50, player=girl, image="gui/inv_chocolate.png")
-        red_pill = Item("Red Pill", hp=100, player=girl, image="gui/inv_chips.png")
-        cola = Item("Cola", mp=25, player=girl, image="gui/inv_cola.png")
-        white_pill = Item("White Pill", mp=50, player=girl, image="gui/inv_banana.png")
-        bullet = Item("Bullet", ammo=1, player=girl, image="gui/inv_musket.png")
-        box = Item("Box of Bullets", ammo=5, player=girl, image="gui/inv_laser.png")
-        # gun = Item("Gun", player=girl, element="bullets", image="gui/inv_gun.png")
-
-        #reset hp on game start
-        # girl.hp=girl.max_hp
-        # girl.mp=girl.max_mp
-
-        inventory = Inventory()
-        #initial inventory
-        # inventory.add(gun)
-        inventory.add(ramen)
-
-###------------------------------------------------------------Naming
-label name:
-
-$ mct = renpy.input("{color=#efd300}What's your in-game name?{/color}", length = 10)
-$ mc = mct.content if isinstance(mc, Text) else mct
-if renpy.variant("pc"):
-    $ mc = mc.strip()
-    $ mc = mc.lower()
-    $ mc = mc.title()
-if mc == "":
-    jump name
-$ mc = Character(mc, color="#2370ff")
-"{color=#efd300}You are an 18-year-old girl, Trapped in a Faculity...{/color}"
-label jess_r:
-
-        $ j_r = renpy.input("{color=#efd300}Jessica (25), your...{/color}", length = 10)
-        $ input = j_r.content if isinstance(j_r, Text) else j_r
-        if renpy.variant("pc"):
-            $ j_r = input.strip()
-            $ j_r = input.lower()
-        if j_r == "":
-            jump jess_r
-
-
-label Name_Change:
-    $ mct = renpy.input("{color=#efd300}What's your in-game name?{/color}", length = 10)
-    $ mc = mct.content if isinstance(mc, Text) else mct
-    if renpy.variant("pc"):
-        $ mc = mc.strip()
-        $ mc = mc.lower()
-        $ mc = mc.title()
-    if mc == "":
-        jump name
-    $ mc = Character(mc, color="#2370ff")
-    "{color=#efd300}You are an 18-year-old guy, living going to college...{/color}"
-label jess_r_change:
-    $ j_r = renpy.input("{color=#efd300}You are an 18-year-old girl, Trapped in a Faculity{/color}", length = 10)
-    $ input = j_r.content if isinstance(j_r, Text) else j_r
-    if renpy.variant("pc"):
-        $ j_r = input.strip()
-        $ j_r = input.lower()
-    if j_r == "":
-        jump jess_r
+        def rename(character, actor=None):
+            replace = renpy.input("What is their name?", default=character.name, length=25)
+            replace = replace.strip()
+            if not replace:
+                pass
+            else:
+                character.name = replace
+                if actor:
+                    actor.name = replace
 
 label language_chooser:
     scene black
 
     menu:
-        "*Will restart the game, so make sure to save.*"
+        "Will restart the game, so make sure to save."
         "English":
             $ renpy.change_language(None)
             stop ambient
@@ -127,6 +66,30 @@ label splashscreen:
         jump language_chooser
 
     return
+
+label start:
+    python:
+        girl = Actor("The Girl", 100, [Punch, Kick, Magic, Defend, Inventory_sk, Flee], max_mp=50)
+        hers = CharStats(strength=40)
+        boy = CharStats(intelligence=40) #For later use
+
+        ramen = Item("Ramen", hp=50, player=girl, image="gui/inv_chocolate.png")
+        red_pill = Item("Red Pill", hp=100, player=girl, image="gui/inv_chips.png")
+        cola = Item("Cola", mp=25, player=girl, image="gui/inv_cola.png")
+        white_pill = Item("White Pill", mp=50, player=girl, image="gui/inv_banana.png")
+        bullet = Item("Bullet", ammo=1, player=girl, image="gui/inv_musket.png")
+        box = Item("Box of Bullets", ammo=5, player=girl, image="gui/inv_laser.png")
+        # gun = Item("Gun", player=girl, element="bullets", image="gui/inv_gun.png")
+
+        #reset hp on game start
+        # girl.hp=girl.max_hp
+        # girl.mp=girl.max_mp
+
+        inventory = Inventory()
+        #initial inventory
+        # inventory.add(gun)
+        inventory.add(ramen)
+
 #################
 label story:
     scene bg park

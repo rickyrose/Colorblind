@@ -1,3 +1,5 @@
+#Update is Coming at 2 pm!!!
+
 init -2:
     image bg park = "bg/ParkDuckless.jpg"
 

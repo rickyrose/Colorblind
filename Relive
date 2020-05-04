@@ -1,0 +1,29 @@
+screen relive_menu:
+    zorder 10
+    tag mini_menu
+#Allows user to relive minigame not fully implimented 
+#Do Not Use until Finished
+
+    if relive_menu_tutor_complete == 0:
+        pass
+    else:
+        modal True
+
+    vbox:
+        imagebutton auto "buttons/closer_button_cell_%s.png" focus_mask True action [SetVariable("phone_button_on", 0), Hide("relive_menu")]
+
+    vbox:
+        xpos 784
+        ypos 80
+        image "bg/cell_phone_display.png"
+
+    frame:
+        xpos 816
+        ypos 140
+        text "{size=18}Total Events: [complete_rel_e!t]/[max_rel_e]{/size}"
+
+    if relive_menu_tutor_complete == 0:
+        frame:
+            xpos 816
+            ypos 190
+            textbutton "{size=28}Maze{/size}" action NullAction()

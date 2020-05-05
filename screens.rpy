@@ -1298,47 +1298,6 @@ screen extras_blank:
     use extras # We include the extras navigation screen
     add "extras_title" xpos 152 ypos 20
 
-init:
-    #emenies redefined, without an underscore, as simple images
-    image enemy1 future = "maze/enemy1_future.png"
-    image enemy1 past = "maze/enemy1_past.png"
-    image enemy1 present = "maze/enemy1_present.png"
-    image enemy1 space = "maze/enemy1_space.png"
-
-    image enemy2 future = "maze/enemy2_future.png"
-    image enemy2 past = "maze/enemy2_past.png"
-    image enemy2 present = "maze/enemy2_present.png"
-    image enemy2 space = "maze/enemy2_space.png"
-
-    image enemy3 future = "maze/enemy3_future.png"
-    image enemy3 past = "maze/enemy3_past.png"
-    image enemy3 present = "maze/enemy3_present.png"
-    image enemy3 space = "maze/enemy3_space.png"
-
-    image enemy4 future = "maze/enemy4_future.png"
-    image enemy4 past = "maze/enemy4_past.png"
-    image enemy4 present = "maze/enemy4_present.png"
-    image enemy4 space = "maze/enemy4_space.png"
-
-    image enemyb1 future = "maze/enemyb1_future.png"
-    image enemyb2 future = "maze/enemyb2_future.png"
-    image enemyb1 past = "maze/enemyb1_past.png"
-    image enemyb2 past = "maze/enemyb2_past.png"
-    image enemyb1 present = "maze/enemyb1_present.png"
-    image enemyb2 present = "maze/enemyb2_present.png"
-    image enemyb1 space = "maze/enemyb1_space.png"
-    image enemyb2 space = "maze/enemyb2_space.png"
-
-    image ten neutral = "sprites/ten_smile.png"
-    image ten frown = "sprites/ten_frown.png"
-    image ten embarressed = "sprites/ten_embarrassed.png"
-    image ten cry = "sprites/ten_cry.png"
-    image ten worried = "sprites/ten_worried.png"
-    image ten shock = "sprites/ten_shock.png"
-    image ten nervous = "sprites/ten_nervous.png"
-    image ten scared = "sprites/ten_scared.png"
-    image ten upset = "sprites/ten_upset.png"
-
 #Galleries:
 init python:
     #Galleries settings - start
@@ -1688,16 +1647,6 @@ init -1 python:
     style.tips_bottom.kerning = 2
 
 init:
-    #Screen titles:
-    image extras_title=Text("extras", style="title")
-    image cg_gallery_title=Text("CG gallery", style="title")
-    image character_gallery_title=Text("character gallery", style="title")
-    image bg_gallery_title=Text("BG gallery", style="title")
-    image concept_gallery_title=Text("concept gallery", style="title")
-    image music_room_title=Text("Jukebox", style="title")
-
-    image help_title=Text("Help", style="title")
-
     #Tooltips - game menu:
     image tooltip_game_menu_save=LiveComposite((665, 73), (3,0), ImageReference("information"), (3,30), Text("Save a game in progress", style="tips_bottom"))
     image tooltip_game_menu_load=LiveComposite((665, 73), (3,0), ImageReference("information"), (3,30), Text("Load a game in progress", style="tips_bottom"))

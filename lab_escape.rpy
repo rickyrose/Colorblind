@@ -688,8 +688,8 @@ label loot_C:
         return
     jump dungeon
 label loot_W:
-    $ inventory.add(white_pill)
-    "You found a [white_pill.name]."
+    $ inventory.add(black_pill)
+    "You found a [black_pill.name]."
     if special_battle:
         $ special_battle = False
         return

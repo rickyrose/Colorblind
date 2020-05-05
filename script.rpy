@@ -77,8 +77,8 @@ label start:
         red_pill = Item("Red Pill", hp=100, player=girl, image="gui/inv_chips.png")
         cola = Item("Cola", mp=25, player=girl, image="gui/inv_cola.png")
         white_pill = Item("White Pill", mp=50, player=girl, image="gui/inv_banana.png")
-        bullet = Item("Bullet", ammo=1, player=girl, image="gui/inv_musket.png")
-        box = Item("Box of Bullets", ammo=5, player=girl, image="gui/inv_laser.png")
+        # bullet = Item("Bullet", ammo=1, player=girl, image="gui/inv_musket.png")
+        # box = Item("Box of Bullets", ammo=5, player=girl, image="gui/inv_laser.png")
         # gun = Item("Gun", player=girl, element="bullets", image="gui/inv_gun.png")
 
         #reset hp on game start

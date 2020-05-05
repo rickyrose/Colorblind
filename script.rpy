@@ -74,7 +74,7 @@ label start:
         boy = CharStats(intelligence=40) #For later use
 
         ramen = Item("Ramen", hp=50, player=girl, image="gui/inv_chocolate.png")
-        red_pill = Item("Red Pill", hp=100, player=girl, image="gui/inv_chips.png")
+        red_pill = Item("Red Pill", hp=100, player=girl, image="gui/red_pill.png")
         cola = Item("Cola", mp=25, player=girl, image="gui/inv_cola.png")
         white_pill = Item("White Pill", mp=50, player=girl, image="gui/inv_banana.png")
         # bullet = Item("Bullet", ammo=1, player=girl, image="gui/inv_musket.png")

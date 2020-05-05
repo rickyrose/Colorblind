@@ -174,42 +174,42 @@ screen navigation:
     add "main_menu_cg_foggy"
     add "gui/main_menu_ground.png"
     add "gui/game_menu_ground.png"
-    # imagebutton:
-    #     background "gui/OptionsSaveGame-insensitive.png"
-    #     idle "gui/OptionsSaveGame-idle.png"
-    #     hover "gui/OptionsSaveGame-hover.png"
-    #     selected_idle "gui/OptionsSaveGame-selected_idle.png"
-    #     selected_hover "gui/OptionsSaveGame-selected_hover.png"
-    #     xpos 980
-    #     ypos 129
-    #     focus_mask True
-    #     action ShowMenu('save')
-    #     hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_save") ]
-    #     unhovered [Hide("gui_tooltip")] at nav_eff
-    # imagebutton:
-    #     background "gui/OptionsLoadGame-insensitive.png"
-    #     idle "gui/OptionsLoadGame-idle.png"
-    #     hover "gui/OptionsLoadGame-hover.png"
-    #     selected_idle "gui/OptionsLoadGame-selected_idle.png"
-    #     selected_hover "gui/OptionsLoadGame-selected_hover.png"
-    #     xpos 980
-    #     ypos 214
-    #     focus_mask True
-    #     action ShowMenu('load')
-    #     hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_load") ]
-    #     unhovered [Hide("gui_tooltip")] at nav_eff
-    # imagebutton:
-    #     background "gui/OptionsOptions-insensitive.png"
-    #     idle "gui/OptionsOptions-idle.png"
-    #     hover "gui/OptionsOptions-hover.png"
-    #     selected_idle "gui/OptionsOptions-selected_idle.png"
-    #     selected_hover "gui/OptionsOptions-selected_hover.png"
-    #     xpos 980
-    #     ypos 297
-    #     focus_mask True
-    #     action ShowMenu('preferences')
-    #     hovered [ Play ("test_three", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_config") ]
-    #     unhovered [Hide("gui_tooltip")] at nav_eff
+    imagebutton:
+        background "gui/OptionsSaveGame-insensitive.png"
+        idle "gui/OptionsSaveGame-idle.png"
+        hover "gui/OptionsSaveGame-hover.png"
+        selected_idle "gui/OptionsSaveGame-selected_idle.png"
+        selected_hover "gui/OptionsSaveGame-selected_hover.png"
+        xpos 980
+        ypos 129
+        focus_mask True
+        action ShowMenu('save')
+        hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_save") ]
+        unhovered [Hide("gui_tooltip")] at nav_eff
+    imagebutton:
+        background "gui/OptionsLoadGame-insensitive.png"
+        idle "gui/OptionsLoadGame-idle.png"
+        hover "gui/OptionsLoadGame-hover.png"
+        selected_idle "gui/OptionsLoadGame-selected_idle.png"
+        selected_hover "gui/OptionsLoadGame-selected_hover.png"
+        xpos 980
+        ypos 214
+        focus_mask True
+        action ShowMenu('load')
+        hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_load") ]
+        unhovered [Hide("gui_tooltip")] at nav_eff
+    imagebutton:
+        background "gui/OptionsOptions-insensitive.png"
+        idle "gui/OptionsOptions-idle.png"
+        hover "gui/OptionsOptions-hover.png"
+        selected_idle "gui/OptionsOptions-selected_idle.png"
+        selected_hover "gui/OptionsOptions-selected_hover.png"
+        xpos 980
+        ypos 297
+        focus_mask True
+        action ShowMenu('preferences')
+        hovered [ Play ("test_three", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_config") ]
+        unhovered [Hide("gui_tooltip")] at nav_eff
     # imagebutton:
     #     background "gui/OptionsMainMenu-insensitive.png"
     #     idle "gui/OptionsMainMenu-idle.png"
@@ -222,36 +222,31 @@ screen navigation:
     #     action MainMenu()
     #     hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_main") ]
     #     unhovered [Hide("gui_tooltip")] at nav_eff
-    # imagebutton:
-    #     background "gui/OptionsReturn-insensitive.png"
-    #     idle "gui/OptionsReturn-idle.png"
-    #     hover "gui/OptionsReturn-hover.png"
-    #     selected_idle "gui/OptionsReturn-selected_idle.png"
-    #     selected_hover "gui/OptionsReturn-selected_hover.png"
-    #     xpos 980
-    #     ypos 465
-    #     focus_mask True
-    #     action Return()
-    #     hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_return") ]
-    #     unhovered [Hide("gui_tooltip")] at nav_eff
-    # imagebutton:
-    #     background "gui/OptionsQuitGame-insensitive.png"
-    #     idle "gui/OptionsQuitGame-idle.png"
-    #     hover "gui/OptionsQuitGame-hover.png"
-    #     selected_idle "gui/OptionsQuitGame-selected_idle.png"
-    #     selected_hover "gui/OptionsQuitGame-selected_hover.png"
-    #     xpos 980
-    #     ypos 549
-    #     focus_mask True
-    #     action Quit()
-    #     hovered [ Play ("test_three", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_quit") ]
-    #     unhovered [Hide("gui_tooltip")] at nav_eff
-    imagebutton auto "gui/game_menu_save_%s.png" xpos 980 ypos 129 focus_mask True action ShowMenu('save') hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_save") ] unhovered [Hide("gui_tooltip")] at nav_eff
-    imagebutton auto "gui/game_menu_load_%s.png" xpos 980 ypos 214 focus_mask True action ShowMenu('load') hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_load") ] unhovered [Hide("gui_tooltip")] at nav_eff
-    imagebutton auto "gui/game_menu_config_%s.png" xpos 980 ypos 297 focus_mask True action ShowMenu('preferences') hovered [ Play ("test_three", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_config") ] unhovered [Hide("gui_tooltip")] at nav_eff
+    imagebutton:
+        background "gui/OptionsReturn-insensitive.png"
+        idle "gui/OptionsReturn-idle.png"
+        hover "gui/OptionsReturn-hover.png"
+        selected_idle "gui/OptionsReturn-selected_idle.png"
+        selected_hover "gui/OptionsReturn-selected_hover.png"
+        xpos 980
+        ypos 465
+        focus_mask True
+        action Return()
+        hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_return") ]
+        unhovered [Hide("gui_tooltip")] at nav_eff
+    imagebutton:
+        background "gui/OptionsQuitGame-insensitive.png"
+        idle "gui/OptionsQuitGame-idle.png"
+        hover "gui/OptionsQuitGame-hover.png"
+        selected_idle "gui/OptionsQuitGame-selected_idle.png"
+        selected_hover "gui/OptionsQuitGame-selected_hover.png"
+        xpos 980
+        ypos 549
+        focus_mask True
+        action Quit()
+        hovered [ Play ("test_three", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_quit") ]
+        unhovered [Hide("gui_tooltip")] at nav_eff
     imagebutton auto "gui/game_menu_main_menu_%s.png" xpos 980 ypos 381 focus_mask True action MainMenu() hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_main") ] unhovered [Hide("gui_tooltip")] at nav_eff
-    imagebutton auto "gui/game_menu_return_%s.png" xpos 980 ypos 465 focus_mask True action Return() hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_return") ] unhovered [Hide("gui_tooltip")] at nav_eff
-    imagebutton auto "gui/game_menu_quit_%s.png" xpos 980 ypos 549 focus_mask True action Quit() hovered [ Play ("test_three", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_quit") ] unhovered [Hide("gui_tooltip")] at nav_eff
 
 # The code below defines the ATL transform effects for the buttons on the game menu. These effects are triggered when we hover the mouse over them (hover and selected_hover). Effects that are triggered by idle and selected_idle events (when we stop hovering the mouse over them) ensure that the buttons are moved back to the initial state.
 
@@ -443,7 +438,7 @@ screen yesno_prompt:
 # Custom mouse pointer is commented out, to disable it for the time being, because of an issue in all recent versions of Ren'Py.
 
 ## ■██▓▒░ TOOLTIP ░▒▓███████████████████████████████████████■
-screen gui_tooltip (my_picture="", my_tt_xpos=58, my_tt_ypos=687):
+screen gui_tooltip (my_picture="", my_tt_xpos=58, my_tt_ypos=600):
     add my_picture xpos my_tt_xpos ypos my_tt_ypos
 
 ## ■██▓▒░ CUSTOM SOUND CHANNEL ░▒▓██████████████████████████■
@@ -578,54 +573,6 @@ style input:
 ## The scroll parameter can be None, or one of "viewport" or "vpgrid". When
 ## this screen is intended to be used with one or more children, which are
 ## transcluded (placed) inside it.
-
-screen navigation():
-
-    vbox:
-        style_prefix "navigation"
-
-        xpos 0.05
-        yalign 0.4
-
-
-        spacing gui.navigation_spacing
-
-        if main_menu:
-
-            textbutton _("Start") action Start() text_color "#dbb200" text_hover_color "#ffffff" text_size 35 text_outlines [ (3, "#000", 0, 0) ]
-
-        else:
-
-            # textbutton _("History") action ShowMenu("history")
-
-            textbutton _("Save") action ShowMenu("save") text_size 35  text_outlines [ (3, "#000", 0, 0) ]
-
-        textbutton _("Load") action ShowMenu("load") text_size 35  text_outlines [ (3, "#000", 0, 0) ]
-
-        textbutton _("Settings") action ShowMenu("Settings") text_size 35  text_outlines [ (3, "#000", 0, 0) ]
-
-        textbutton _("Language") action ShowMenu("language_chooser") text_size 35  text_outlines [ (3, "#000", 0, 0) ]
-
-        textbutton _("Patreon") action OpenURL("https://www.patreon.com/IDK") text_idle_color "#ffc86b" text_hover_color "#f2a21d" text_size 35 text_outlines [ (3, "#000", 0, 0) ]
-
-        if _in_replay:
-
-            textbutton _("End Replay") action EndReplay(confirm=True) text_size 35 text_outlines [ (3, "#000", 0, 0) ]
-
-        elif not main_menu:
-
-            textbutton _("Main Menu") action MainMenu() text_size 35 text_outlines [ (3, "#000", 0, 0) ]
-
-        # textbutton _("About") action ShowMenu("about")
-
-        if renpy.variant("pc"):
-
-            # ## Help isn't necessary or relevant to mobile devices.
-            # textbutton _("Help") action ShowMenu("help")
-
-            ## The quit button is banned on iOS and unnecessary on Android.
-            textbutton _("Quit") action Quit(confirm=not main_menu) text_size 35 text_outlines [ (3, "#000", 0, 0) ]
-
 
 style navigation_button is gui_button
 style navigation_button_text is gui_button_text

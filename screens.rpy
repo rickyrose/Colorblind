@@ -90,20 +90,18 @@ screen main_menu:
     add "gui/main_menu_title.png"
     $ x = 995
     $ y=110
-    imagebutton auto "gui/main_start_%s.png" xpos x ypos y focus_mask None action Start() hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_main_menu_start") ] unhovered [Hide("gui_tooltip")] at main_eff1
+    imagebutton auto "gui/MainStart-%s.png" xpos x ypos y focus_mask None action Start() hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_main_menu_start") ] unhovered [Hide("gui_tooltip")] at main_eff1
     $ y+=90
-    imagebutton auto "gui/main_load_%s.png" xpos x ypos y focus_mask None  action ShowMenu('load') hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_load") ] unhovered [Hide("gui_tooltip")] at main_eff2
+    imagebutton auto "gui/MainLoadStart-%s.png" xpos x ypos y focus_mask None action ShowMenu('load') hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_load") ] unhovered [Hide("gui_tooltip")] at main_eff2
     $ y+=90
-    imagebutton auto "gui/main_config_%s.png" xpos x ypos y focus_mask None action ShowMenu('preferences') hovered [ Play ("test_three", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_config") ] unhovered [Hide("gui_tooltip")] at main_eff3
+    imagebutton auto "gui/MainOptionsStart-%s.png" xpos x ypos y focus_mask None action ShowMenu('preferences') hovered [ Play ("test_three", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_config") ] unhovered [Hide("gui_tooltip")] at main_eff3
     $ y+=90
     # if persistent.extra_unlocked: # We only show the extras, if they have been unlocked. Because we are using a variable (y) for ypos, we don't need to worry about positioning the rest of the button(s).
-    imagebutton auto "gui/main_extras_%s.png" xpos x ypos y focus_mask None action ShowMenu('extras_blank') hovered [ Play ("test_four", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_main_menu_extras") ] unhovered [Hide("gui_tooltip")] at main_eff4
+    imagebutton auto "gui/MainExtrasStart-%s.png" xpos x ypos y focus_mask None action ShowMenu('extras_blank') hovered [ Play ("test_four", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_main_menu_extras") ] unhovered [Hide("gui_tooltip")] at main_eff4
     $ y+=90
-
-    imagebutton auto "gui/main_help_%s.png" xpos x ypos y focus_mask None action ShowMenu('help') hovered [ Play ("test_five", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_main_menu_help") ] unhovered [Hide("gui_tooltip")] at main_eff4
+    imagebutton auto "gui/MainHelpStart-%s.png" xpos x ypos y focus_mask None action ShowMenu('help') hovered [ Play ("test_five", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_main_menu_help") ] unhovered [Hide("gui_tooltip")] at main_eff4
     $ y+=90
-
-    imagebutton auto "gui/main_quit_%s.png" xpos x ypos y focus_mask None action Quit(confirm=False) hovered [ Play ("test_six", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_quit") ] unhovered [Hide("gui_tooltip")] at main_eff5
+    imagebutton auto "gui/MainQuitStart-%s.png" xpos x ypos y focus_mask None action Quit(confirm=False) hovered [ Play ("test_six", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_quit") ] unhovered [Hide("gui_tooltip")] at main_eff5
 
 # The code below defines the ATL transform effects for each button on the main menu. These effects are triggered when the buttons are shown.
 # ATL transform properties: http://www.renpy.org/wiki/renpy/doc/reference/Animation_and_Transformation_Language#Transform_Properties
@@ -176,12 +174,79 @@ screen navigation:
     add "main_menu_cg_foggy"
     add "gui/main_menu_ground.png"
     add "gui/game_menu_ground.png"
-    imagebutton auto "gui/game_menu_save_%s.png" xpos 980 ypos 129 focus_mask True action ShowMenu('save') hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_save") ] unhovered [Hide("gui_tooltip")] at nav_eff
-    imagebutton auto "gui/game_menu_load_%s.png" xpos 980 ypos 214 focus_mask True action ShowMenu('load') hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_load") ] unhovered [Hide("gui_tooltip")] at nav_eff
-    imagebutton auto "gui/game_menu_config_%s.png" xpos 980 ypos 297 focus_mask True action ShowMenu('preferences') hovered [ Play ("test_three", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_config") ] unhovered [Hide("gui_tooltip")] at nav_eff
+    imagebutton:
+        background "gui/OptionsSaveGame-insensitive.png"
+        idle "gui/OptionsSaveGame-idle.png"
+        hover "gui/OptionsSaveGame-hover.png"
+        selected_idle "gui/OptionsSaveGame-selected_idle.png"
+        selected_hover "gui/OptionsSaveGame-selected_hover.png"
+        xpos 980
+        ypos 129
+        focus_mask True
+        action ShowMenu('save')
+        hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_save") ]
+        unhovered [Hide("gui_tooltip")] at nav_eff
+    imagebutton:
+        background "gui/OptionsLoadGame-insensitive.png"
+        idle "gui/OptionsLoadGame-idle.png"
+        hover "gui/OptionsLoadGame-hover.png"
+        selected_idle "gui/OptionsLoadGame-selected_idle.png"
+        selected_hover "gui/OptionsLoadGame-selected_hover.png"
+        xpos 980
+        ypos 214
+        focus_mask True
+        action ShowMenu('load')
+        hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_load") ]
+        unhovered [Hide("gui_tooltip")] at nav_eff
+    imagebutton:
+        background "gui/OptionsOptions-insensitive.png"
+        idle "gui/OptionsOptions-idle.png"
+        hover "gui/OptionsOptions-hover.png"
+        selected_idle "gui/OptionsOptions-selected_idle.png"
+        selected_hover "gui/OptionsOptions-selected_hover.png"
+        xpos 980
+        ypos 297
+        focus_mask True
+        action ShowMenu('preferences')
+        hovered [ Play ("test_three", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_config") ]
+        unhovered [Hide("gui_tooltip")] at nav_eff
+    # imagebutton:
+    #     background "gui/OptionsMainMenu-insensitive.png"
+    #     idle "gui/OptionsMainMenu-idle.png"
+    #     hover "gui/OptionsMainMenu-hover.png"
+    #     selected_idle "gui/OptionsMainMenu-selected_idle.png"
+    #     selected_hover "gui/OptionsMainMenu-selected_hover.png"
+    #     xpos 980
+    #     ypos 381
+    #     focus_mask True
+    #     action MainMenu()
+    #     hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_main") ]
+    #     unhovered [Hide("gui_tooltip")] at nav_eff
+    imagebutton:
+        background "gui/OptionsReturn-insensitive.png"
+        idle "gui/OptionsReturn-idle.png"
+        hover "gui/OptionsReturn-hover.png"
+        selected_idle "gui/OptionsReturn-selected_idle.png"
+        selected_hover "gui/OptionsReturn-selected_hover.png"
+        xpos 980
+        ypos 465
+        focus_mask True
+        action Return()
+        hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_return") ]
+        unhovered [Hide("gui_tooltip")] at nav_eff
+    imagebutton:
+        background "gui/OptionsQuitGame-insensitive.png"
+        idle "gui/OptionsQuitGame-idle.png"
+        hover "gui/OptionsQuitGame-hover.png"
+        selected_idle "gui/OptionsQuitGame-selected_idle.png"
+        selected_hover "gui/OptionsQuitGame-selected_hover.png"
+        xpos 980
+        ypos 549
+        focus_mask True
+        action Quit()
+        hovered [ Play ("test_three", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_quit") ]
+        unhovered [Hide("gui_tooltip")] at nav_eff
     imagebutton auto "gui/game_menu_main_menu_%s.png" xpos 980 ypos 381 focus_mask True action MainMenu() hovered [ Play ("test_one", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_main") ] unhovered [Hide("gui_tooltip")] at nav_eff
-    imagebutton auto "gui/game_menu_return_%s.png" xpos 980 ypos 465 focus_mask True action Return() hovered [ Play ("test_two", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_return") ] unhovered [Hide("gui_tooltip")] at nav_eff
-    imagebutton auto "gui/game_menu_quit_%s.png" xpos 980 ypos 549 focus_mask True action Quit() hovered [ Play ("test_three", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_quit") ] unhovered [Hide("gui_tooltip")] at nav_eff
 
 # The code below defines the ATL transform effects for the buttons on the game menu. These effects are triggered when we hover the mouse over them (hover and selected_hover). Effects that are triggered by idle and selected_idle events (when we stop hovering the mouse over them) ensure that the buttons are moved back to the initial state.
 
@@ -373,7 +438,7 @@ screen yesno_prompt:
 # Custom mouse pointer is commented out, to disable it for the time being, because of an issue in all recent versions of Ren'Py.
 
 ## ■██▓▒░ TOOLTIP ░▒▓███████████████████████████████████████■
-screen gui_tooltip (my_picture="", my_tt_xpos=58, my_tt_ypos=687):
+screen gui_tooltip (my_picture="", my_tt_xpos=58, my_tt_ypos=600):
     add my_picture xpos my_tt_xpos ypos my_tt_ypos
 
 ## ■██▓▒░ CUSTOM SOUND CHANNEL ░▒▓██████████████████████████■
@@ -508,54 +573,6 @@ style input:
 ## The scroll parameter can be None, or one of "viewport" or "vpgrid". When
 ## this screen is intended to be used with one or more children, which are
 ## transcluded (placed) inside it.
-
-screen navigation():
-
-    vbox:
-        style_prefix "navigation"
-
-        xpos 0.05
-        yalign 0.4
-
-
-        spacing gui.navigation_spacing
-
-        if main_menu:
-
-            textbutton _("Start") action Start() text_color "#dbb200" text_hover_color "#ffffff" text_size 35 text_outlines [ (3, "#000", 0, 0) ]
-
-        else:
-
-            # textbutton _("History") action ShowMenu("history")
-
-            textbutton _("Save") action ShowMenu("save") text_size 35  text_outlines [ (3, "#000", 0, 0) ]
-
-        textbutton _("Load") action ShowMenu("load") text_size 35  text_outlines [ (3, "#000", 0, 0) ]
-
-        textbutton _("Settings") action ShowMenu("Settings") text_size 35  text_outlines [ (3, "#000", 0, 0) ]
-
-        textbutton _("Language") action ShowMenu("language_chooser") text_size 35  text_outlines [ (3, "#000", 0, 0) ]
-
-        textbutton _("Patreon") action OpenURL("https://www.patreon.com/IDK") text_idle_color "#ffc86b" text_hover_color "#f2a21d" text_size 35 text_outlines [ (3, "#000", 0, 0) ]
-
-        if _in_replay:
-
-            textbutton _("End Replay") action EndReplay(confirm=True) text_size 35 text_outlines [ (3, "#000", 0, 0) ]
-
-        elif not main_menu:
-
-            textbutton _("Main Menu") action MainMenu() text_size 35 text_outlines [ (3, "#000", 0, 0) ]
-
-        # textbutton _("About") action ShowMenu("about")
-
-        if renpy.variant("pc"):
-
-            # ## Help isn't necessary or relevant to mobile devices.
-            # textbutton _("Help") action ShowMenu("help")
-
-            ## The quit button is banned on iOS and unnecessary on Android.
-            textbutton _("Quit") action Quit(confirm=not main_menu) text_size 35 text_outlines [ (3, "#000", 0, 0) ]
-
 
 style navigation_button is gui_button
 style navigation_button_text is gui_button_text
@@ -1108,7 +1125,7 @@ init -2 python:
     style.gamehelp_button_text.outlines = [ (1, "#000", 1, 1) ]
     style.gamehelp_button.top_padding = 5
     style.gamehelp_button.bottom_padding = 5
-    
+
 ##############################################################################
 # Quick Menu
 #
@@ -1195,41 +1212,52 @@ init -2 python:
 
 
 init:
-    $ extras_items = ["cg_gallery", "ch_gallery", "bg_gallery", "music_room", "dev_gallery"]
+    $ extras_items = ["ch_gallery", "bg_gallery", "music_room", "secrets", "cg_gallery"]
 
-    image button_ch_gallery = At(LiveComposite ((335, 74), (0,0), "gui/side_button.png",(19, 19), "gui/icon_ch_gallery.png",  (77, 18), Text("Char. Art", style="side_butt")), side_eff)
-    image button_ch_gallery_selected_idle = At(LiveComposite ((335, 74), (0,0), "gui/side_button_selected.png", (19, 19), "gui/icon_ch_gallery.png",   (77, 18), Text("Characters", style="side_butt")), side_eff_selected_idle)
-    image button_ch_gallery_selected_hover = At(LiveComposite ((335, 74), (0,0), "gui/side_button_selected.png", (19, 19), "gui/icon_ch_gallery.png",  (77, 18), Text("Characters", style="side_butt")), side_eff_selected_hover)
+    image button_ch_gallery = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasCharArt-idle.png"), side_eff)
+    image button_ch_gallery_hover = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasCharArt-hover.png"), side_eff)
+    image button_ch_gallery_selected_idle = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasCharArt-selected_idle.png"), side_eff_selected_idle)
+    image button_ch_gallery_selected_hover = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasCharArt-selected_hover.png"), side_eff_selected_hover)
 
-    image button_bg_gallery = At(LiveComposite ((335, 74), (0,0), "gui/side_button.png",(19, 19), "gui/icon_bg_gallery.png",  (77, 18), Text("BG Art", style="side_butt")), side_eff)
-    image button_bg_gallery_selected_idle = At(LiveComposite ((335, 74), (0,0), "gui/side_button_selected.png", (19, 19), "gui/icon_bg_gallery.png", (77, 18), Text("BG Art", style="side_butt")), side_eff_selected_idle)
-    image button_bg_gallery_selected_hover = At(LiveComposite ((335, 74), (0,0), "gui/side_button_selected.png", (19, 19), "gui/icon_bg_gallery.png", (77, 18), Text("BG Art", style="side_butt")), side_eff_selected_hover)
+    image button_bg_gallery = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasBGArt-idle.png"), side_eff)
+    image button_bg_gallery_hover = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasBGArt-hover.png"), side_eff)
+    image button_bg_gallery_selected_idle = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasBGArt-selected_idle.png"), side_eff_selected_idle)
+    image button_bg_gallery_selected_hover = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasBGArt-selected_hover.png"), side_eff_selected_hover)
 
-    image button_cg_gallery = At(LiveComposite ((335, 74), (0,0), "gui/side_button.png", (19, 19), "gui/icon_cg_gallery.png",  (77, 18), Text("CG Art", style="side_butt")), side_eff)
-    image button_cg_gallery_selected_idle = At(LiveComposite ((335, 74), (0,0), "gui/side_button_selected.png", (19, 19), "gui/icon_cg_gallery.png",  (77, 18), Text("CG Art", style="side_butt")), side_eff_selected_idle)
-    image button_cg_gallery_selected_hover = At(LiveComposite ((335, 74), (0,0), "gui/side_button_selected.png", (19, 19), "gui/icon_cg_gallery.png",  (77, 18), Text("CG Art", style="side_butt")), side_eff_selected_hover)
+    image button_cg_gallery = At(LiveComposite ((281, 75), (0,0), "gui/side_button.png", (19, 19), "gui/icon_cg_gallery.png",  (77, 18), Text("CG Art", style="side_butt")), side_eff)
+    image button_cg_gallery_hover = At(LiveComposite ((281, 75), (0,0), "gui/side_button.png", (19, 19), "gui/icon_cg_gallery.png",  (77, 18), Text("CG Art", style="side_butt")), side_eff)
+    image button_cg_gallery_selected_idle = At(LiveComposite ((281, 75), (0,0), "gui/side_button_selected.png", (19, 19), "gui/icon_cg_gallery.png",  (77, 18), Text("CG Art", style="side_butt")), side_eff_selected_idle)
+    image button_cg_gallery_selected_hover = At(LiveComposite ((281, 75), (0,0), "gui/side_button_selected.png", (19, 19), "gui/icon_cg_gallery.png",  (77, 18), Text("CG Art", style="side_butt")), side_eff_selected_hover)
 
-    image button_music_room = At(LiveComposite ((335, 74), (0,0), "gui/side_button.png", (19, 19), "gui/icon_jukebox.png",  (77, 18), Text("Jukebox", style="side_butt")), side_eff)
-    image button_music_room_selected_idle = At(LiveComposite ((335, 74), (0,0), "gui/side_button_selected.png", (19, 19), "gui/icon_jukebox.png",  (77, 18), Text("Jukebox", style="side_butt")), side_eff_selected_idle)
-    image button_music_room_selected_hover = At(LiveComposite ((335, 74), (0,0), "gui/side_button_selected.png", (19, 19), "gui/icon_jukebox.png",  (77, 18), Text("Jukebox", style="side_butt")), side_eff_selected_hover)
+    image button_music_room = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasMusic-idle.png"), side_eff)
+    image button_music_room_hover = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasMusic-hover.png"), side_eff)
+    image button_music_room_selected_idle = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasMusic-selected_idle.png"), side_eff_selected_idle)
+    image button_music_room_selected_hover = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasMusic-selected_hover.png"), side_eff_selected_hover)
 
-    image button_dev_gallery = At(LiveComposite ((335, 74), (0,0), "gui/side_button.png", (19, 19), "gui/icon_dev_gallery.png", (77, 18), Text("Concepts", style="side_butt")), side_eff)
-    image button_dev_gallery_selected_idle = At(LiveComposite ((335, 74), (0,0), "gui/side_button_selected.png", (19, 19), "gui/icon_dev_gallery.png",  (77, 18), Text("Concepts", style="side_butt")), side_eff_selected_idle)
-    image button_dev_gallery_selected_hover = At(LiveComposite ((335, 74), (0,0), "gui/side_button_selected.png", (19, 19), "gui/icon_dev_gallery.png",  (77, 18), Text("Concepts", style="side_butt")), side_eff_selected_hover)
+    image button_secrets = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasSecrets-idle.png"), side_eff)
+    image button_secrets_hover = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasSecrets-hover.png"), side_eff)
+    image button_secrets_selected_idle = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasSecrets-selected_idle.png"), side_eff_selected_idle)
+    image button_secrets_selected_hover = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasSecrets-selected_hover.png"), side_eff_selected_hover)
 
-    image button_return = At(LiveComposite ((335, 74), (0,0), "gui/side_button.png", (19, 19), "gui/icon_return.png", (77, 18), Text("Return", style="side_butt")), side_eff)
-    image button_return_selected_idle = At(LiveComposite ((335, 74), (0,0), "gui/side_button_selected.png", (19, 19), "gui/icon_return.png", (77, 18), Text("CG Art", style="side_butt")), side_eff_selected_idle)
-    image button_return_selected_hover = At(LiveComposite ((335, 74), (0,0), "gui/side_button_selected.png", (19, 19), "gui/icon_return.png", (77, 18), Text("CG Art", style="side_butt")), side_eff_selected_hover)
+    image button_return = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasReturn-idle.png"), side_eff)
+    image button_return_hover = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasReturn-hover.png"), side_eff)
+    image button_return_selected_idle = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasReturn-selected_idle.png"), side_eff_selected_idle)
+    image button_return_selected_hover = At(LiveComposite ((281, 75), (0,0), "gui/ExtrasReturn-selected_hover.png"), side_eff_selected_hover)
 
 init -1:
     transform side_eff:
         on idle:
-            alpha .8
+            # alpha .8
             easein 0.5 xpos 0
+        # on selected_idle:
+        #     easein 0.5 xpos 0
         on hover:
-            alpha 1.0
+            # alpha 1.0
             easein 0.3 xpos 20
             easein 0.3 xpos -20
+        # on selected_hover:
+        #     easein 0.3 xpos 20
+        #     easein 0.3 xpos -20
     transform side_eff_selected_idle:
         alpha .8
         easein 0.5 xpos 0
@@ -1247,9 +1275,11 @@ screen extras:
     add "gui/game_menu_ground.png"
     add "gui/extras_ground.png"
     $ y = 129
-    vbox xpos 1020 ypos 129 spacing 9:
+    vbox xpos 970 ypos 129 spacing 9:
+        # imagebutton auto "ExtrasCharArt-%s.png" xpos 1020 ypos 129 focus_mask True action ShowMenu("ch_gallery") hovered [Play("sound", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_extras_ch_gallery")] unhovered [Hide("gui_tooltip")] at side_eff
         for item in extras_items:
             $ button_name = "button_" + item
+            $ button_name_hover = button_name + "_hover"
             $ button_name_selected_idle = button_name + "_selected_idle"
             $ button_name_selected_hover = button_name + "_selected_hover"
             $ tip_name = "tooltip_extras_" + item
@@ -1257,6 +1287,7 @@ screen extras:
                 add button_name
                 selected_idle_child button_name_selected_idle
                 selected_hover_child button_name_selected_hover
+                hover_child button_name_hover
         button background None focus_mask True action Return() hovered [ Play ("sound", "sfx/click.wav"), Show("gui_tooltip", my_picture="tooltip_game_menu_return") ] unhovered [Hide("gui_tooltip")]:
             add "button_return"
             selected_idle_child "button_return_selected_idle"
@@ -1268,17 +1299,6 @@ screen extras_blank:
     add "extras_title" xpos 152 ypos 20
 
 init:
-    image angel_concept = "sketches/angel_concept.jpg"
-    image enemy1_lineart = "sketches/enemy1_lineart.jpg"
-    image failattemptatangeldeath = "sketches/failattemptatangeldeath.jpg"
-    image ghostbosses_concept = "sketches/ghostbosses_concept.jpg"
-    image main_menu_mockup2 = "sketches/main_menu_mockup2.jpg"
-    image minienemies = "sketches/minienemies.jpg"
-    image second_concept = "sketches/second_concept.jpg"
-    image ten_concept = "sketches/ten_concept.jpg"
-    image title_screen_sketch = "sketches/title_screen_sketch.jpg"
-
-
     #emenies redefined, without an underscore, as simple images
     image enemy1 future = "maze/enemy1_future.png"
     image enemy1 past = "maze/enemy1_past.png"

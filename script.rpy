@@ -1,8 +1,4 @@
-#Update is Coming at 2 pm!!!
-
 init -2:
-    image bg park = "bg/ParkDuckless.jpg"
-
     # Declare characters used by this game. The color argument colorizes the
     # name of the character.
 
@@ -11,7 +7,7 @@ init -2:
     define mc = Character("You", who_color="#2370ff")
     define pa = Character(_("P. A."), who_color="#e8ef26")
     define n = Character(None, kind=nvl, say_thought_color = "#FFF")
-    
+
 init python:
     config.gestures = { "n_s" : "hide_windows", "e" : "toggle_skip", "w_e" : "game_menu", "w" : "rollback" }
     def rename(character, actor=None):

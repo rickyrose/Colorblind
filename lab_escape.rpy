@@ -167,6 +167,10 @@ label dungeon:
                 pass
         while 1:
             # Calculate relative coordinates
+            # Here is a visualised relative coordinate in this code. Image here=player and facing top.
+            # left3, front2, right3
+            # left2, front1, right2
+            # left1,  here , right1
             turnback    = Position(here.map,   here.y,               here.x,               -here.dy,  -here.dx,  here.num)
             turnright   = Position(here.map,   here.y,               here.x,               here.dx,   -here.dy,  here.num)
             turnleft    = Position(here.map,   here.y,               here.x,               -here.dx,  here.dy,   here.num)
@@ -549,57 +553,6 @@ init:
             ease 2.0 ypos -0.01
             repeat
 
-    #Assign background images.
-
-    image sewer_base = "maze/sewer_base.png"
-    image sewer_left1 = "maze/sewer_left1.png"
-    image sewer_right1 = im.Flip("maze/sewer_left1.png", horizontal=True)
-    image sewer_front1 = "maze/sewer_front1.png"
-    image sewer_left2 = "maze/sewer_left2.png"
-    image sewer_right2 = im.Flip("maze/sewer_left2.png", horizontal=True)
-    image sewer_front2 ="maze/sewer_front2.png"
-    image sewer_left3 = "maze/sewer_left3.png"
-    image sewer_right3 = im.Flip("maze/sewer_left3.png", horizontal=True)
-    image sewer_exit1 = "maze/sewer_exit1.png"
-    image sewer_exit2 = "maze/sewer_exit2.png"
-
-    image lab_base:
-        "maze/lab_red_base.png" with Dissolve(1.0, alpha=True)
-        2.0
-        "maze/lab_dark_base.png"
-        2.0
-        repeat
-    image lab_left1 = "maze/lab_left1.png"
-    image lab_right1 = im.Flip("maze/lab_left1.png", horizontal=True)
-    image lab_front1 = "maze/lab_front1.png"
-    image lab_left2 = "maze/lab_left2.png"
-    image lab_right2 = im.Flip("maze/lab_left2.png", horizontal=True)
-    image lab_front2 ="maze/lab_front2.png"
-    image lab_left3 = "maze/lab_left3.png"
-    image lab_right3 = im.Flip("maze/lab_left3.png", horizontal=True)
-    image lab_exit1 = "maze/lab_exit1.png"
-    image lab_exit2 = "maze/lab_exit2.png"
-
-    image closet = "maze/closet.png"
-
-    image up_button = "gui/up_button.png"
-    image down_button = im.Flip("gui/up_button.png", vertical=True)
-    image right_buton = "gui/right_button.png"
-    image left_button = im.Flip("gui/right_button.png", horizontal=True)
-
-#Temporary until receive proper artwork
-    image p_base = "maze/sewer_base.png"
-    image p_left1 = "maze/p_left1.png"
-    image p_right1 = im.Flip("maze/p_left1.png", horizontal=True)
-    image p_front1 = "maze/p_front1.png"
-    image p_left2 = "maze/p_left2.png"
-    image p_right2 = im.Flip("maze/p_left2.png", horizontal=True)
-    image p_front2 ="maze/p_front2.png"
-    image p_left3 = "maze/p_left3.png"
-    image p_right3 = im.Flip("maze/p_left3.png", horizontal=True)
-    image p_exit1 = "maze/lab_exit1.png"
-    image p_exit2 = "maze/lab_exit2.png"
-
 init:
     transform exit_hover:
         alpha 0.5
@@ -613,44 +566,6 @@ init:
             ease 2.0 ypos 0.53
             ease 2.0 ypos 0.47
             repeat
-
-    image enemy1_pic:
-        contains:
-            "maze/dogs.png" #image names to be updated
-        fly
-
-    image enemy2_pic:
-        contains:
-            "maze/haz_scientist.png"
-        fly
-
-    image enemy3_pic:
-        contains:
-            "maze/robot.png"
-        fly
-
-    image enemy4_pic:
-        contains:
-            "maze/soldier.png"
-        fly
-
-    image enemy5_pic:
-        "maze/enemyb1_future.png" with Dissolve(3.0, alpha=True)
-        6.0
-        "maze/enemyb3_future.png" with Dissolve(3.0, alpha=True)
-        6.0
-        # "maze/enemyb2.png" with Dissolve(3.0, alpha=True)
-        # 6.0
-        repeat
-
-    # Here is a visualised relative coordinate in this code. Image here=player and facing top.
-    # left3, front2, right3
-    # left2, front1, right2
-    # left1,  here , right1
-# init +1:
-    # image present_dungeon = im.Composite (None, (0,0), ImageReference("p_base"), (0,0), ImageReference("p_left3"), (0,0), ImageReference("p_right3"), (0,0),ImageReference("p_left1"), (0,0),ImageReference("p_right1"))
-    # image lab_walls = im.Composite (None, (0,0), ImageReference("lab_base"), (0,0), ImageReference("lab_left3"), (0,0), ImageReference("lab_right3"), (0,0),ImageReference("lab_left1"), (0,0),ImageReference("lab_right1"))
-    # image sewer_walls = im.Composite (None, (0,0), ImageReference("sewer_base"), (0,0), ImageReference("sewer_left3"), (0,0), ImageReference("sewer_right3"), (0,0),ImageReference("sewer_left1"), (0,0),ImageReference("sewer_right1"))
 
 init -2 python:
     class Item(store.object):

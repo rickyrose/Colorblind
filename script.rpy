@@ -4,11 +4,22 @@ init -2:
 
     # Main female character. Brass/copper skin. Black hair.
     define g = Character("The Girl", who_color="#fc4a1e")
-    define mc = Character("You", who_color="#2370ff")
-    define pa = Character(_("P. A."), who_color="#e8ef26")
+    # Main male character
+    define mc = Character("Kaleb", who_color="#2370ff")
+    define narrator = Character(None, ctc="ctc",  ctc_position="fixed")
+
+    #Prologue characters
+    define pa = Character(_("P. A."), who_color="#e8efE6")
+
+    #Chapter 1 characters
+    define mk = Character("Mr. Kirk", who_color="#46105E")
+    define jsn = Character("Jason", who_color="#ffE023")
+    define sne = Character("Syd & Ellie", who_color="#44CCCC")
+    define an = Character("???", who_color="#969696")
+    define dude = Character("Some Dude", who_color="#2222ff")
+
     define dc = Caracter("Doctors", who_color="#91c2ff")
     define gd =  Caracter("Guards", who_color="#F5F5DC")
-    define narrator = Character(None, ctc="ctc",  ctc_position="fixed")
     define mr =  Caracter("Test Subject 42", who_color="#9bc6c0")
     define tri = Character("Elite Soldiers", what_prefix='"', what_suffix='"', ctc="ctc",  ctc_position="fixed")
     define gents = Character("The Dogs", what_prefix='"', what_suffix='"', ctc="ctc",  ctc_position="fixed")
@@ -113,7 +124,7 @@ label start:
 label story:
     scene bg park
     $ rename(g, girl)
-    n "Start story"
+    narrator "Start story"
 
     # "bg lab.png" not yet created. Description follows:
     # Sterile gray room lined with infrared cameras. On wall is a large 2-way mirror
@@ -193,6 +204,107 @@ label story:
     ###############
     #Play escape movie here
     jump dungeon1
+
+label chp_1:
+    # Classroom scene
+    "The classroom is large and bright. Large windows illuminate the classroom, and reveal a young man sleeping at his desk."
+    $ rename(mc)
+    mk "Philosophy is something that has been taught and in question for generations. Your assignment was to choose a philosophy that resonated with you and write a three page paper."
+    "[mc.name]'s eyes twitch behind his eyelids. Drool begins to pool on his desk."
+    mk "You will be receiving your papers back when you leave class today."
+    # Transition to dream scene
+    "Everyone including [mc.name]’s best friend Jason was listening intently to the professor. Meanwhile [mc.name] was drenched in darkness. In his dream all that could be seen was red flashing red lights and rain hitting the floor."
+    mc "W-wait..."
+    "There was a shadow figure a few feet ahead of him. He reaches out to touch it but it’s moving too fast as if it was running away."
+    mc "Wait!"
+    "The shadowy figure stops and looks back at him revealing two bright glowing eyes and then disappears into the distance."
+    # Jump back to classroom scene, everyone looking at the dude
+    "[mc.name] screams out one more time for the figure to stop but this time it wasn’t just in his head. No the whole class heard him and the room fell into an awkward silence."
+    mk "Why don’t you see me after class, [mc.name]."
+    "Jason tries to conceal his laughter with his hand. [mc.name] couldn’t help but smirk at the dumb look he had on his face as he wiped his drool off his lip."
+    mc "Yes sir."
+    mk "Alright, that'll be all for today. Class dismissed. Come and pick up your papers before you leave."
+    "Everyone files out of the room except [mc.name]."
+    mk "Are you okay, [mc.name]? You don’t normally fall asleep in class like that."
+    menu:
+        "Yea, I’m fine. Sorry about that.":
+            mk "Well don’t let it happen again. This is a place of learning, not sleeping."
+        "To be honest I haven’t been sleeping very well.":
+            mk "I’m sorry to hear that but you must find a way to get some sleep."
+    mk "Well in any case [mc.name] job well done on your paper."
+    "Mr. Kirk hands you the three paged writing assignment."
+    mk "I will say I was surprised about the philosophy you chose...Solipsism huh? There is nothing that can be confirmed except this present moment."
+    mc "And perhaps I’m the only person to exist and the entire world around me is just an illusion."
+    mk "Fascinating."
+    mc "Mr. Kirk if I did as well as you say, why is there an F on my paper."
+    mk "It is because, Mr. Soma, I am a nihilist and therefore grades hold no intrinsic value. In that way anything can be valued as much or as little as you choose."
+    mc "Ah I see."
+    "He turns to leave."
+    mk "Know that I value you very highly [mc.name]."
+    mc "Thank you, sir."
+    mk "Now get some sleep!"
+    # Transition to outside of class
+    "[mc.name] leaves the classroom and to his surprise someone is waiting for him just outside the building doors."
+    jsn "Hey!"
+    mc "Hey, what’s up man."
+    jsn "I swear you're the only person that would get caught sleeping in that class."
+    mc "Haha... whatever dude."
+    "He nudges you lightly"
+    jsn "Anyways there’s a party tonight at the twins place. Heard shit's gonna get crazy, you in?"
+    menu:
+        "{i}(Sounds cool but I really should take Kirk's advice and get some sleep. I should make up a excuse.){/i}"
+        "Sorry I have a huge assignment I have to get done.":
+            mc "Sorry I have a huge assignment I have to get done."
+            jsn "Mr. goodie goodie as always."
+        "Maybe but I’m waiting on a call from my dad this evening.I don’t think I’ll be able to make it.":
+            mc "Maybe but I’m waiting on a call from my dad this evening.I don’t think I’ll be able to make it."
+            jsn "Alright man let me know if you change your mind."
+    jsn "I’ll catch you later."
+    mc "Alright, bye"
+    narrator "[mc.name] makes his way back to his dorm room. After setting his bag down, he grabs his headphones from the drawer he keeps them in. Plugging them in, [mc.name] listens to soothing music and falls asleep."
+    #Play dream movie 2 here?
+    "When [mc.name] wakes up he sees on his phone that it's 7 pm."
+    # play "phone_notification.ogg"
+    "He gets a text from Jason.
+    It's a picture of him partying with a bunch of girls."
+    "It says \"Hey you coming or not?!\""
+    mc "{i}(I do feel more rested, and for once I’m ahead on my work... maybe I should go out.){\i}"
+    "He texts Jason back: \"Ya man see you soon.\""
+    #Transition to Sorority scene
+    "Kaleb knocks on the door and is greeted by the twins Sydnee and Ellie."
+    sne "Hey, Kaleb! Come in, drinks are in the back corner.
+    You can find your friend Jason nursing the keg stand."
+    mc "Thanks!"
+    jsn "HEEYYY, better late than never."
+    "They dap each other up."
+    jsn "Here, have a drink man."
+    "Jason grabs a solo cup and fills it to the brim with beer."
+    mc "Ah man you know I don’t really drink."
+    jsn "You are tonight... here live a little man."
+    "Kaleb goes for a sip but Jason yells “Chug chug” and soon the whole back of the room is too."
+    "Kaleb chugs the beer which ends in everyone cheering."
+    jsn "AYYEE, that’s my man and look you're not stopping until I say so."
+    mc "Alright man."
+    "Kaleb starts to make his rounds around the party but with every drink his vision starts to get hazier and things make less sense."
+    jump drunk_text
+label chp_1_party:
+    "At this point [mc.name] doesn’t even remember the girl he’s talking to."
+    an "Hey, are you okay? You don’t look so hot."
+    menu:
+        "I’m fine, Jessie":
+            pass
+        "I’m fine, Emalee":
+            pass
+    an "My name is Annabelle."
+    "She rolls her eyes and walks away."
+    dude "OH SHIT IT'S CAMPUS SECURITY."
+    "Everybody runs for the exit including Kaleb. At this point it 12am and pouring outside. It’s a short walk from the sorority house to his dorm room but it feels worse when you're drunk and scared. He begins running in a direction that seems familiar."
+    mc "{i}(I hope Jason made it out okay.){\i}"
+    "Then he stops suddenly in his tracks. The lights from the security cars can still be seen behind him. He sees a familiar shadowy figure. Except he can see upon further inspection that it’s a girl and she isn’t running. In fact she’s staring right at him."
+    mc "H-hello?"
+    "He reaches out with the strangest sense of deja vu."
+    "Maybe it was the beer finally getting ahead of him or him just being overwhelmed but he collapses onto the street floor."
+    "He opens his eyes one last time to see her standing over him and swears she could see a little glow in her eyes."
 
     #Maze Events
 label event_a:

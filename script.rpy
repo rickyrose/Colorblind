@@ -18,9 +18,9 @@ init -2:
     define an = Character("???", who_color="#969696")
     define dude = Character("Some Dude", who_color="#2222ff")
 
-    define dc = Caracter("Doctors", who_color="#91c2ff")
-    define gd =  Caracter("Guards", who_color="#F5F5DC")
-    define mr =  Caracter("Test Subject 42", who_color="#9bc6c0")
+    define dc = Character("Doctors", who_color="#91c2ff")
+    define gd =  Character("Guards", who_color="#F5F5DC")
+    define mr =  Character("Test Subject 42", who_color="#9bc6c0")
     define tri = Character("Elite Soldiers", what_prefix='"', what_suffix='"', ctc="ctc",  ctc_position="fixed")
     define gents = Character("The Dogs", what_prefix='"', what_suffix='"', ctc="ctc",  ctc_position="fixed")
     define bl = Character("Vlad", what_prefix='"', what_suffix='"', ctc="ctc",  ctc_position="fixed")

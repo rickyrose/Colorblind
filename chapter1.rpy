@@ -250,5 +250,6 @@ init:
 
 label drunk_text:
     python:
-        for letter in range("a", "{"):
+        letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+        for letter in letters:
             renpy.show("letter_" + letter)

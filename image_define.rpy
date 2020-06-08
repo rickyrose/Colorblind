@@ -128,5 +128,34 @@ init:
 
     image help_title=Text("Help", style="title")
 
+#Letters used in texting minigame
+init:
+    image letter a = "images/a.png"
+    image letter b = "images/b.png"
+    image letter c = "images/c.png"
+    image letter d = "images/d.png"
+    image letter e = "images/e.png"
+    image letter f = "images/f.png"
+    image letter g = "images/g.png"
+    image letter h = "images/h.png"
+    image letter i = "images/i.png"
+    image letter j = "images/j.png"
+    image letter k = "images/k.png"
+    image letter l = "images/l.png"
+    image letter m = "images/m.png"
+    image letter n = "images/n.png"
+    image letter o = "images/o.png"
+    image letter p = "images/p.png"
+    image letter q = "images/q.png"
+    image letter r = "images/r.png"
+    image letter s = "images/s.png"
+    image letter t = "images/t.png"
+    image letter u = "images/u.png"
+    image letter v = "images/v.png"
+    image letter w = "images/w.png"
+    image letter x = "images/x.png"
+    image letter y = "images/y.png"
+    image letter z = "images/z.png"
+    
 # Background image used as placeholder for testing purposes
 image bg park = "bg/ParkDuckless.jpg"

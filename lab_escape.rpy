@@ -43,6 +43,116 @@ init -2 python:
 
     # Create maps. 1=wall, 2=exit, 3=entrance(entrance position must be also set in the script)
 
+
+#image bg room= "lab.png"
+
+
+#image semi stand = "girl6.png"
+ 
+
+ #image semi walk:
+  #   "girl1.png"
+ #    0.3
+#     "girl2.png"
+#     0.3
+#     "girl3.png"
+#     0.3
+ #    "girl4.png"
+ #    0.3
+ #    "girl5.png"
+ #     0.3
+ #   "girl6.png"
+ #   0.3
+ #   repeat
+#position of characters
+#    define sX=310
+#    define sY=335
+#    default mX=0
+    
+#    default dist=0
+#    #checking what character is doing
+#    default standWalk=0
+    #background of room 0 is as far to the left as you can get
+#    default rx= -1000
+
+#    screen checkMouse():
+#        if standWalk==0:
+#        key "mousedown_1" action Jump ("checkDist")
+
+
+#label start:
+#    scene bg room:
+#            xpos rx
+#    show screen checkMouse
+
+#label standRight
+#    $ standWalk=0
+    
+#    show semi stand:
+#    xpos sX
+#    ypos sY
+#    xzoom 1.0
+
+#    $ renpy.pause(hard=True)
+
+#label standLeft
+#    $ standWalk=0
+
+#show semi stand:
+#    xpos sX
+#    ypos sY
+#    xzoom -1.0
+    
+#    $ renpy.pause(hard=True)
+
+#label walkRight
+#    $standWalk=1
+#    scene bg room:
+#        xpos rX
+#        linear dist/100.0 xpos rx-dist
+
+#    show semi walk:
+#    xpos sX
+#    ypos sY
+#    xzoom 1.0
+
+#    $ renpy.pause(delay=dist/100.0, hard=True)
+#    $rX -=dist
+#    jump standRight
+
+ #   label walkLeft
+ #       $standWalk=1
+ #       scene bg room:
+ #           xpos rX
+ #           linear dist/100.0 xpos rx+dist
+    
+ #       show semi walk:
+ #       xpos sX
+ #       ypos sY
+ #       xzoom -1.0
+    
+ #       $ renpy.pause(delay=dist/-100.0, hard=True)
+ #       $rX +=dist
+ #       jump standLeft
+
+#label checkDist:
+#    $ mX=renpy.get_mouse_pos()[0]
+
+#    if mX>320:
+        #prevents character from walking outside area
+#        $ dist = mX-320
+#        if Rx-dist<-4067:
+#            $dist= 4067 + rX
+#        jump walkRight
+
+ #   else:
+        #prevents character from walking outside area
+ #       $dist = 320-mX
+ #       if rX+dist>-351:
+ #           $ dist= -(351 + rX)
+ #       jump walkLeft
+        
+
     #First level. Player starts next to future exit but can't leave until after defeating the opponent at event a
     stage1 = [
     "1111111111",

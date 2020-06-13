@@ -1,0 +1,98 @@
+# trans.rpy 
+# Save the file under this name and put it in the game folder game 
+# This file contains a list of all translated phrases of the “general” Ren'Py mode.
+init python:
+ 
+    # Translatable lines in the common / 00developer.rpy 
+    config file . translations [ u "Developer Menu" ] =  u'Menu developer ' 
+    config . translations [ u "Return to the developer menu" ] =  u'Return to the developer menu '
+
+    # Translatable lines in the common / 00library.rpy 
+    config file . translations [ u "Skip Mode" ] =  u'Skip Mode ' 
+    config . translations [ u "Fast Skip Mode" ] =  u'Fast Skip ' 
+    config . translations [ u "While Ren'Py games may be playable without the renpy module, some features may be disabled. For more information, read the module / README.txt file or go to http://www.bishoujo.us/renpy/ . " ] = u "Ren'Py games can be launched without the renpy module, but some functions may be disabled. More information can be found in the module / README.txt file or at http://www.bishoujo.us/renpy/." 
+    config . translations [ u "renpy module not found." ] =  u 'module renpy not found.' 
+    config . translations [ u "The renpy module could not be loaded on your system." ] =  u 'I can’t load the renpy module under your system.' 
+    config . translations [ u "Old renpy module found." ] =  u 'An outdated renpy module was detected.'translations [ u "An old version ( % d ) of the Ren'Py module was found on your system, while this game requires version % d ." ] =  u "An outdated version ( % d ) of the Ren'Py module has been detected. The game requires a version older than % d ." 
+    config . translations [ u "Please click to continue." ] =  u 'To continue, click the left mouse button.'
+
+    # Translatable lines in the common / 00menus.rpy 
+    config file . translations [ u "Start Game" ] =  u'New game ' 
+    config . translations [ u "Continue Game" ] =  u'Continue ' 
+    config . translations [ u "Preferences" ] =  u'Settings' 
+    config . translations [ u "Quit" ] =  u'Exit ' 
+    config . translations [ u "Return" ] =  u'Return ' 
+    config .] =  u 'Save' 
+    config . translations [ u "Load Game" ] =  u'Upload ' 
+    config . translations [ u "Main Menu" ] =  u'Main menu ' 
+    config . translations [ u "Are you sure you want to quit?" ] =  u 'Are you sure you want to exit?' 
+    config . translations [ u "Are you sure you want to return to the main menu? \ n This will lose unsaved progress." ] =  u'Are you sure you want to go to the main menu? \ nНе сохраненное прохождение будет утеряно.'
+
+    # Translatable lines in the file common / _layout / one_column_preferences.rpym 
+    config . translations [ u "Display" ] =  u'Screen mode ' 
+    config . translations [ u "Transitions" ] =  u 'Transitions ' 
+    config . translations [ u "Skip" ] =  u 'Skip ' 
+    config . translations [ u "Begin Skipping" ] =  u'Start skipping ... ' 
+    config . translations [ u "After Choices" ] =  u'After selecting 'translations [ u "Text Speed" ] =  u'Text Speed ' 
+    config . translations [ u "Auto-Forward Time" ] =  u'Auto scroll time ' 
+    config . translations [ u "Music Volume" ] =  u'Music volume ' 
+    config . translations [ u "Sound Volume" ] =  u'Loudness of sounds' 
+    config . translations [ u "Voice Volume" ] =  u'Voice volume ' 
+    config . translations [ u " u 'Joystick ...'
+
+    # Translatable lines of the file common / _layout / classic_yesno_prompt.rpym 
+    config . translations [ u "Yes" ] =  u'Yes' 
+    config . translations [ u "No" ] =  u'No '
+
+    # Translatable lines of the file common / _layout / scrolling_load_save.rpym 
+    config . translations [ u "Empty Slot." ] =  u 'Empty slot.' 
+    config . translations [ u "Are you sure you want to overwrite your save?" ] =  u 'Are you sure you want to overwrite the save?' 
+    config . translations [ u "Loading will lose unsaved progress. \ n Are you sure you want to do this?" ] =  u'When loading, unsaved passage will be lost. \ n Are you sure to continue? ' 
+    config . translations [ u "=  u'в ' 
+    config . translations [ u "a" ] =  u'o ' 
+    config . translations [ u "Are you sure you want to delete this save?" ] =  u 'Delete this save?'
+    
+    # Translatable lines in the file common / _layout / classic_joystick_preferences.rpym 
+    config . translations [ u "Not Assigned" ] =  u'Not Assigned ' 
+    config . translations [ u "Joystick Mapping" ] =  u 'Joystick Settings' 
+    config . translations [ u "Left" ] =  u 'Left ' 
+    config . translations [ u "Right" ] =  u'Right ' 
+    config . translations [ u "Up" ] =  u'Up 'translations [ u "Down" ] =  u'Down ' 
+    config . translations [ u "Select / Dismiss" ] =  u'Select / Reject ' 
+    config . translations [ u "Rollback" ] =  u'Return ' 
+    config . translations [ u "Hold to Skip" ] =  u'Keep to skip ' 
+    config . translations [ u "Toggle Skip" ] =  u'Switch skip ' 
+    config . translations [ u "Hide Text" 
+    config . translations [ u "Menu" ] =  u'Menu ' 
+    config . translations [ u "Move the joystick or press a joystick button to create the mapping. Click the mouse to remove the mapping." ] =  u'Press the joystick button to create a binding to the action. Click to unlink. '
+
+    # Translatable lines of the file common / _layout / classic_preferences_common.rpym 
+    config . translations [ u "Test" ] =  u'Test ' 
+    config . translations [ u "Window" ] =  u'Window ' 
+    config . translations [ u "Fullscreen" ] =  u'Fullscreen ' 
+    config . translations [ u "All" ] =  u'All ' 
+    config . translations [ u "Some" ] =  u'Some ' 
+    config .] =  u'No ' 
+    config . translations [ u "Seen Messages" ] =  u'Read ' 
+    config . translations [ u "All Messages" ] =  u'All messages' 
+    config . translations [ u "Stop Skipping" ] =  u'Stop skipping ' 
+    config . translations [ u "Keep Skipping" ] =  u'Continue Skip '
+
+    # Translatable lines in the file common / _layout / classic_load_save.rpym 
+    config . translations [ u "Auto" ] =  u'Autosave ' 
+    config . translations [ u "Quick" ] =  u'Quixave ' 
+    config . translations [ u "Previous" ] =  u '<<' 
+    config . translations [ u "Next" ] =  u '>>'
+
+    # Translatable lines in the file common / _compat / gamemenu.rpym 
+    config . translations [ u "The error message was:" ] =  u'Error message: ' 
+    config . translations [ u "You may want to try saving in a different slot, or playing for a while and trying again later." ] =  u'Try to save to another slot or, after playing a little, try again. ' 
+    config . translations [ u "Save Failed." ] =  u 'Save error.'
+
+    # Translatable lines in the file common / _compat / preferences.rpym 
+    config . translations [ u "Joystick Configuration" ] =  u 'Joystick setup'
+
+    # Translatable lines of the file common / _compat / mainmenu.rpym
+ 
+    config . translations [ u "Continue Game" ] =  u'Continue the game '
+

@@ -430,3 +430,5 @@ label drunk_text:
                     renpy.show_screen("right_" + letters[i])
                     renpy.hide_screen("letter_" + letters[i])
             renpy.pause(0.01)
+    window show
+    jump chp_1_party

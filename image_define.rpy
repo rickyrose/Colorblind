@@ -159,3 +159,4 @@ init:
     
 # Background image used as placeholder for testing purposes
 image bg park = "bg/ParkDuckless.jpg"
+image bg party = "bg/9.png"

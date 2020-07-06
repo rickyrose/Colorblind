@@ -48,7 +48,7 @@ label first_test:
         "4":
             "There are 4 types of rungs in the DNA ladder, which must mean there are 4 amino acids."
     mc "{i}All done. And just in time, too.{\i}"
-    jump after_test
+    # jump after_test
 label second_test:
     "[mc.name] received his second test of the day: Genetics."
     menu:
@@ -91,6 +91,7 @@ label second_test:
         "The peppered moth evolved camouflage in response to humans altering the environment":
             "Yeah, they got darker when the industrial revolution made the trees sooty and they got lighter when environmental protection policies were enacted."
             $ boy.intelligence += 5
+    jump after_test
 
 init -2:
     screen letter_a:

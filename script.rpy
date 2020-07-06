@@ -3,7 +3,7 @@ init -2:
     # name of the character.
 
     # Main female character. Brass/copper skin. Black hair.
-    define g = Character("The Girl", who_color="#fc4a1e")
+    define g = Character("Aura", who_color="#fc4a1e")
     # Main male character
     define mc = Character("Kaleb", who_color="#2370ff")
     define narrator = Character(None, ctc="ctc",  ctc_position="fixed")
@@ -99,7 +99,7 @@ label splashscreen:
 
 label start:
     python:
-        girl = Actor("The Girl", 100, [Punch, Kick, Magic, Defend, Inventory_sk, Flee], max_mp=50)
+        girl = Actor("Aura", 100, [Punch, Kick, Magic, Defend, Inventory_sk, Flee], max_mp=50)
         hers = CharStats(strength=40)
         boy = CharStats(intelligence=40) #For later use
 
@@ -122,8 +122,10 @@ label start:
 
 #################
 label story:
-    scene bg park
-    $ rename(g, girl)
+    scene bg party
+    # jump drunk_text
+    # $ rename(g, girl)
+    jump chp_1
     narrator "Start story"
 
     # "bg lab.png" not yet created. Description follows:
@@ -199,13 +201,16 @@ label story:
     # "girl tethered levitating.png" not yet created. Description follows:
     # Girl completely lifted from chair, held down only by hands and ankles
     show girl tethered levitating
-
+    #
+    # jump drunk_text
 
     ###############
     #Play escape movie here
     jump dungeon1
 
 label chp_1:
+    jump first_test
+label after_test:
     # Classroom scene
     "The classroom is large and bright. Large windows illuminate the classroom, and reveal a young man sleeping at his desk."
     $ rename(mc)

@@ -47,6 +47,8 @@ label first_test:
             $ boy.intelligence += 5
         "4":
             "There are 4 types of rungs in the DNA ladder, which must mean there are 4 amino acids."
+    mc "{i}All done. And just in time, too.{\i}"
+    jump after_test
 label second_test:
     "[mc.name] received his second test of the day: Genetics."
     menu:
@@ -90,166 +92,341 @@ label second_test:
             "Yeah, they got darker when the industrial revolution made the trees sooty and they got lighter when environmental protection policies were enacted."
             $ boy.intelligence += 5
 
-init:
+init -2:
     screen letter_a:
         imagebutton:
-            auto "letter a"
-            action [Show("letter a", 170, 534), Hide("letter_a")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter a"
+            action [ToggleDict(key_flags, "s"),
+                    ToggleDict(key_flags, "n"),
+                    SetDict(key_flags, "a", True),
+                    ToggleDict(key_flags, "c"),
+                    ToggleDict(key_flags, "k")]
+            pos positions[0]
+    screen right_a:
+        add "letter a" xpos 170 ypos 534
     screen letter_b:
         imagebutton:
-            auto "letter b"
-            action [Show("letter b", 560, 627), Hide("letter_b")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter b"
+            action [SetDict(key_flags, "b", True),
+                    ToggleDict(key_flags, "e"),
+                    ToggleDict(key_flags, "a"),
+                    ToggleDict(key_flags, "r"),
+                    ToggleDict(key_flags, "d")]
+            pos positions[1]
+    screen right_b:
+        add "letter b" xpos 560 ypos 627
     screen letter_c:
         imagebutton:
-            auto "letter c"
-            action [Show("letter c", 370, 627), Hide("letter_c")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter c"
+            action [SetDict(key_flags, "c", True),
+                    ToggleDict(key_flags, "b"),
+                    ToggleDict(key_flags, "u"),
+                    ToggleDict(key_flags, "s"),
+                    ToggleDict(key_flags, "t")]
+            pos positions[2]
+    screen right_c:
+        add "letter c" xpos 370 ypos 627
     screen letter_d:
         imagebutton:
-            auto "letter d"
-            action [Show("letter d", 360, 534), Hide("letter_d")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter d"
+            action [SetDict(key_flags, "d", True),
+                    ToggleDict(key_flags, "w"),
+                    ToggleDict(key_flags, "v"),
+                    ToggleDict(key_flags, "r"),
+                    ToggleDict(key_flags, "s")]
+            pos positions[3]
+    screen right_d:
+        add "letter d" xpos 360 ypos 534
     screen letter_e:
         imagebutton:
-            auto "letter e"
-            action [Show("letter e", 350, 441), Hide("letter_e")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter e"
+            action [SetDict(key_flags, "e", True),
+                    ToggleDict(key_flags, "r"),
+                    ToggleDict(key_flags, "u"),
+                    ToggleDict(key_flags, "s"),
+                    ToggleDict(key_flags, "t")]
+            pos positions[4]
+    screen right_e:
+        add "letter e" xpos 350 ypos 441
     screen letter_f:
         imagebutton:
-            auto "letter f"
-            action [Show("letter f", 455, 534), Hide("letter_f")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter f"
+            action [SetDict(key_flags, "f", True),
+                    ToggleDict(key_flags, "a"),
+                    ToggleDict(key_flags, "l"),
+                    ToggleDict(key_flags, "e"),
+                    ToggleDict(key_flags, "x")]
+            pos positions[5]
+    screen right_f:
+        add "letter f" xpos 455 ypos 534
     screen letter_g:
         imagebutton:
-            auto "letter g"
-            action [Show("letter g", 550, 534), Hide("letter_g")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter g"
+            action [SetDict(key_flags, "g", True),
+                    ToggleDict(key_flags, "c"),
+                    # ToggleDict(key_flags, "a"),
+                    ToggleDict(key_flags, "u"),
+                    ToggleDict(key_flags, "m")]
+            pos positions[6]
+    screen right_g:
+        add "letter g" xpos 550 ypos 534
     screen letter_h:
         imagebutton:
-            auto "letter h"
-            action [Show("letter h", 645, 534), Hide("letter_h")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter h"
+            action [SetDict(key_flags, "h", True),
+                    ToggleDict(key_flags, "e"),
+                    ToggleDict(key_flags, "u"),
+                    ToggleDict(key_flags, "r"),
+                    ToggleDict(key_flags, "o")]
+            pos positions[7]
+    screen right_h:
+        add "letter h" xpos 645 ypos 534
     screen letter_i:
         imagebutton:
-            auto "letter i"
-            action [Show("letter i", 645, 441), Hide("letter_i")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter i"
+            action [SetDict(key_flags, "i", True),
+                    ToggleDict(key_flags, "c"),
+                    ToggleDict(key_flags, "h"),
+                    ToggleDict(key_flags, "a"),
+                    ToggleDict(key_flags, "d")]
+            pos positions[8]
+    screen right_i:
+        add "letter i" xpos 825 ypos 441
     screen letter_j:
         imagebutton:
-            auto "letter j"
-            action [Show("letter j", 740, 534), Hide("letter_j")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter j"
+            action [SetDict(key_flags, "j", True),
+                    ToggleDict(key_flags, "n"),
+                    ToggleDict(key_flags, "g"),
+                    ToggleDict(key_flags, "l"),
+                    ToggleDict(key_flags, "e")]
+            pos positions[9]
+    screen right_j:
+        add "letter j" xpos 740 ypos 534
     screen letter_k:
         imagebutton:
-            auto "letter k"
-            action [Show("letter k", 835, 534), Hide("letter_k")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter k"
+            action [SetDict(key_flags, "k", True),
+                    ToggleDict(key_flags, "i"),
+                    ToggleDict(key_flags, "c"),
+                    ToggleDict(key_flags, "u"),
+                    ToggleDict(key_flags, "p")]
+            pos positions[10]
+    screen right_k:
+        add "letter k" xpos 835 ypos 534
     screen letter_l:
         imagebutton:
-            auto "letter l"
-            action [Show("letter l", 930, 534), Hide("letter_l")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter l"
+            action [SetDict(key_flags, "l", True),
+                    ToggleDict(key_flags, "i"),
+                    ToggleDict(key_flags, "z"),
+                    ToggleDict(key_flags, "r"),
+                    ToggleDict(key_flags, "d")]
+            pos positions[11]
+    screen right_l:
+        add "letter l" xpos 930 ypos 534
     screen letter_m:
         imagebutton:
-            auto "letter m"
-            action [Show("letter m", 750, 627), Hide("letter_m")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter m"
+            action [SetDict(key_flags, "m", True),
+                    ToggleDict(key_flags, "i"),
+                    ToggleDict(key_flags, "t"),
+                    ToggleDict(key_flags, "x"),
+                    ToggleDict(key_flags, "n")]
+            pos positions[12]
+    screen right_m:
+        add "letter m" xpos 750 ypos 627
     screen letter_n:
         imagebutton:
-            auto "letter n"
-            action [Show("letter n", 665, 627), Hide("letter_n")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter n"
+            action [SetDict(key_flags, "n", True),
+                    ToggleDict(key_flags, "o"),
+                    ToggleDict(key_flags, "s"),
+                    ToggleDict(key_flags, "u"),
+                    ToggleDict(key_flags, "p")]
+            pos positions[13]
+    screen right_n:
+        add "letter n" xpos 655 ypos 627
     screen letter_o:
         imagebutton:
-            auto "letter o"
-            action [Show("letter o", 740, 441), Hide("letter_o")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter o"
+            action [SetDict(key_flags, "o", True),
+                    ToggleDict(key_flags, "w"),
+                    ToggleDict(key_flags, "r"),
+                    ToggleDict(key_flags, "s"),
+                    ToggleDict(key_flags, "t")]
+            pos positions[14]
+    screen right_o:
+        add "letter o" xpos 920 ypos 441
     screen letter_p:
         imagebutton:
-            auto "letter p"
-            action [Show("letter p", 835, 441), Hide("letter_p")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter p"
+            action [SetDict(key_flags, "p", True),
+                    ToggleDict(key_flags, "s"),
+                    ToggleDict(key_flags, "c"),
+                    ToggleDict(key_flags, "y"),
+                    ToggleDict(key_flags, "h")]
+            pos positions[15]
+    screen right_p:
+        add "letter p" xpos 1015 ypos 441
     screen letter_q:
         imagebutton:
-            auto "letter q"
-            action [Show("letter q", 160, 441), Hide("letter_q")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter q"
+            action [SetDict(key_flags, "q", True),
+                    ToggleDict(key_flags, "a"),
+                    ToggleDict(key_flags, "c"),
+                    ToggleDict(key_flags, "r"),
+                    ToggleDict(key_flags, "b")]
+            pos positions[16]
+    screen right_q:
+        add "letter q" xpos 160 ypos 441
     screen letter_r:
         imagebutton:
-            auto "letter r"
-            action [Show("letter r", 445, 441), Hide("letter_r")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter r"
+            action [SetDict(key_flags, "r", True),
+                    ToggleDict(key_flags, "w"),
+                    ToggleDict(key_flags, "h"),
+                    ToggleDict(key_flags, "o"),
+                    ToggleDict(key_flags, "e")]
+            pos positions[17]
+    screen right_r:
+        add "letter r" xpos 445 ypos 441
     screen letter_s:
         imagebutton:
-            auto "letter s"
-            action [Show("letter s", 265, 534), Hide("letter_s")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter s"
+            action [SetDict(key_flags, "s", True),
+                    ToggleDict(key_flags, "l"),
+                    ToggleDict(key_flags, "g"),
+                    ToggleDict(key_flags, "h"),
+                    ToggleDict(key_flags, "r")]
+            pos positions[18]
+    screen right_s:
+        add "letter s" xpos 265 ypos 534
     screen letter_t:
         imagebutton:
-            auto "letter t"
-            action [Show("letter t", 540, 441), Hide("letter_t")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter t"
+            action [SetDict(key_flags, "t", True),
+                    ToggleDict(key_flags, "i"),
+                    ToggleDict(key_flags, "e"),
+                    ToggleDict(key_flags, "v"),
+                    ToggleDict(key_flags, "l")]
+            pos positions[19]
+    screen right_t:
+        add "letter t" xpos 540 ypos 441
     screen letter_u:
         imagebutton:
-            auto "letter u"
-            action [Show("letter u", 730, 441), Hide("letter_u")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter u"
+            action [SetDict(key_flags, "u", True),
+                    ToggleDict(key_flags, "q"),
+                    ToggleDict(key_flags, "t"),
+                    ToggleDict(key_flags, "p"),
+                    ToggleDict(key_flags, "i")]
+            pos positions[20]
+    screen right_u:
+        add "letter u" xpos 730 ypos 441
     screen letter_v:
         imagebutton:
-            auto "letter v"
-            action [Show("letter v", 465, 627), Hide("letter_v")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter v"
+            action [SetDict(key_flags, "v", True),
+                    ToggleDict(key_flags, "i"),
+                    ToggleDict(key_flags, "x"),
+                    ToggleDict(key_flags, "e"),
+                    ToggleDict(key_flags, "n")]
+            pos positions[21]
+    screen right_v:
+        add "letter v" xpos 465 ypos 627
     screen letter_w:
         imagebutton:
-            auto "letter w"
-            action [Show("letter w", 255, 441), Hide("letter_w")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter w"
+            action [SetDict(key_flags, "w", True),
+                    ToggleDict(key_flags, "v"),
+                    ToggleDict(key_flags, "x"),
+                    ToggleDict(key_flags, "y"),
+                    ToggleDict(key_flags, "z")]
+            pos positions[22]
+    screen right_w:
+        add "letter w" xpos 255 ypos 441
     screen letter_x:
         imagebutton:
-            auto "letter x"
-            action [Show("letter x", 275, 627), Hide("letter_x")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter x"
+            action [SetDict(key_flags, "x", True),
+                    ToggleDict(key_flags, "g"),
+                    ToggleDict(key_flags, "o"),
+                    ToggleDict(key_flags, "l"),
+                    ToggleDict(key_flags, "d")]
+            pos positions[23]
+    screen right_x:
+        add "letter x" xpos 275 ypos 627
     screen letter_y:
         imagebutton:
-            auto "letter y"
-            action [Show("letter y", 635, 441), Hide("letter_y")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
+            idle "letter y"
+            action [SetDict(key_flags, "y", True),
+                    ToggleDict(key_flags, "k"),
+                    ToggleDict(key_flags, "w"),
+                    ToggleDict(key_flags, "r"),
+                    ToggleDict(key_flags, "j")]
+            pos positions[24]
+    screen right_y:
+        add "letter y" xpos 635 ypos 441
     screen letter_z:
         imagebutton:
-            auto "letter z"
-            action [Show("letter z", 180, 627), Hide("letter_z")]
-            xpos random.randrange(0, 1280)
-            ypos random.randrange(0, 441)
-
+            idle "letter z"
+            action [SetDict(key_flags, "z", True),
+                    ToggleDict(key_flags, "j"),
+                    ToggleDict(key_flags, "o"),
+                    ToggleDict(key_flags, "g"),
+                    ToggleDict(key_flags, "m")]
+            pos positions[25]
+    screen right_z:
+        add "letter z" xpos 180 ypos 627
+    screen clear_keys:
+        imagebutton:
+            idle "gui/frame.png"
+            action [SetDict(key_flags, "a", False), SetDict(key_flags, "b", False), SetDict(key_flags, "c", False),
+                    SetDict(key_flags, "d", False), SetDict(key_flags, "e", False), SetDict(key_flags, "f", False),
+                    SetDict(key_flags, "g", False), SetDict(key_flags, "h", False), SetDict(key_flags, "i", False),
+                    SetDict(key_flags, "j", False), SetDict(key_flags, "k", False), SetDict(key_flags, "l", False),
+                    SetDict(key_flags, "m", False), SetDict(key_flags, "n", False), SetDict(key_flags, "o", False),
+                    SetDict(key_flags, "p", False), SetDict(key_flags, "q", False), SetDict(key_flags, "r", False),
+                    SetDict(key_flags, "s", False), SetDict(key_flags, "t", False), SetDict(key_flags, "u", False),
+                    SetDict(key_flags, "v", False), SetDict(key_flags, "w", False), SetDict(key_flags, "x", False),
+                    SetDict(key_flags, "y", False), SetDict(key_flags, "z", False)]
+            pos (0.9, 0.9)
 label drunk_text:
+    window hide
     python:
-        letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+        event_check=False
+        config.rollback_enabled=False
+        letters = [ "a","b","c","d","e","f","g","h","i","j","k","l","m",
+                    "n","o","p","q","r","s","t","u","v","w","x","y","z"]
+        positions = [(random.randrange(0,1200), random.randrange(0, 350)) for l in letters]
+        directions = [(random.randrange(-8,9), random.randrange(-4,5)) for l in letters]
+        key_flags = {} # Used to determine when all the buttons have been placed.
         for letter in letters:
-            renpy.show("letter_" + letter)
+            key_flags[letter] = False
+            renpy.show_screen("letter_" + letter)
+        renpy.show_screen("clear_keys")
+        while False in key_flags.values():
+            for i in range(0, 26):
+                if not key_flags[letters[i]]:
+                    renpy.show_screen("letter_" + letters[i])
+                    renpy.hide_screen("right_" + letters[i])
+                    if directions[i][0] == 0 and directions[i][1] == 0:
+                        directions[i] = (random.randrange(-8,9), random.randrange(-4,5))
+                    positions[i] = tuple(map(sum, zip(positions[i], directions[i])))
+                    if positions[i][0] <= 0:
+                        positions[i] = (0, positions[i][1])
+                        directions[i] = (random.randrange(0, 9), directions[i][1])
+                    elif positions[i][0] >= 1200:
+                        positions[i] = (1200, positions[i][1])
+                        directions[i] = (random.randrange(-8, 1), directions[i][1])
+                    if positions[i][1] <= 0:
+                        positions[i] = (positions[i][0], 0)
+                        directions[i] = (directions[i][0], random.randrange(0, 5))
+                    elif positions[i][1] >= 350:
+                        positions[i] = (positions[i][0], 350)
+                        directions[i] = (directions[i][0], random.randrange(-4, 1))
+                else:
+                    renpy.show_screen("right_" + letters[i])
+                    renpy.hide_screen("letter_" + letters[i])
+            renpy.pause(0.01)

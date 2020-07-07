@@ -6,13 +6,13 @@ init -2:
     define g = Character("Aura", who_color="#fc4a1e")
     # Main male character
     define mc = Character("Kaleb", who_color="#2370ff")
-    define narrator = Character(None, ctc="ctc",  ctc_position="fixed")
+    define narrator = Character(None,  ctc_position="fixed")
 
     #Prologue characters
     define pa = Character(_("P. A."), who_color="#e8efE6")
 
     #Chapter 1 characters
-    define mk = Character("Mr. Kirk", who_color="#46105E")
+    define mk = Character("Mr. Kirk", who_color="#46105E", xalign=0.5, yalign=0.5)
     define jsn = Character("Jason", who_color="#ffE023")
     define sne = Character("Syd & Ellie", who_color="#44CCCC")
     define an = Character("???", who_color="#969696")
@@ -122,7 +122,7 @@ label start:
 
 #################
 label story:
-    scene bg party
+    scene bg room test
     # jump drunk_text
     # $ rename(g, girl)
     jump chp_1
@@ -209,21 +209,24 @@ label story:
     jump dungeon1
 
 label chp_1:
-    jump first_test
-label after_test:
-    # Classroom scene
-    "The classroom is large and bright. Large windows illuminate the classroom, and reveal a young man sleeping at his desk."
+    "This young man is about to take two tests today."
     $ rename(mc)
+    jump first_test
+label after_test_2:
+    # Classroom scene
+    scene dozing
     mk "Philosophy is something that has been taught and in question for generations. Your assignment was to choose a philosophy that resonated with you and write a three page paper."
     "[mc.name]'s eyes twitch behind his eyelids. Drool begins to pool on his desk."
     mk "You will be receiving your papers back when you leave class today."
     # Transition to dream scene
+    scene rain dream
     "Everyone including [mc.name]’s best friend Jason was listening intently to the professor. Meanwhile [mc.name] was drenched in darkness. In his dream all that could be seen was red flashing red lights and rain hitting the floor."
     mc "W-wait..."
     "There was a shadow figure a few feet ahead of him. He reaches out to touch it but it’s moving too fast as if it was running away."
     mc "Wait!"
     "The shadowy figure stops and looks back at him revealing two bright glowing eyes and then disappears into the distance."
     # Jump back to classroom scene, everyone looking at the dude
+    scene teacher staring
     "[mc.name] screams out one more time for the figure to stop but this time it wasn’t just in his head. No the whole class heard him and the room fell into an awkward silence."
     mk "Why don’t you see me after class, [mc.name]."
     "Jason tries to conceal his laughter with his hand. [mc.name] couldn’t help but smirk at the dumb look he had on his face as he wiped his drool off his lip."
@@ -249,8 +252,10 @@ label after_test:
     mc "Thank you, sir."
     mk "Now get some sleep!"
     # Transition to outside of class
+    scene tiger king
     "[mc.name] leaves the classroom and to his surprise someone is waiting for him just outside the building doors."
     jsn "Hey!"
+    scene tiger bench
     mc "Hey, what’s up man."
     jsn "I swear you're the only person that would get caught sleeping in that class."
     mc "Haha... whatever dude."
@@ -266,7 +271,10 @@ label after_test:
             jsn "Alright man let me know if you change your mind."
     jsn "I’ll catch you later."
     mc "Alright, bye"
-    narrator "[mc.name] makes his way back to his dorm room. After setting his bag down, he grabs his headphones from the drawer he keeps them in. Plugging them in, [mc.name] listens to soothing music and falls asleep."
+    scene dorm enter
+    narrator "[mc.name] makes his way back to his dorm room. After setting his bag down, he grabs his headphones from the drawer he keeps them in."
+    scene dorm bed with fade
+    "Plugging them in, [mc.name] listens to soothing music and falls asleep."
     #Play dream movie 2 here?
     "When [mc.name] wakes up he sees on his phone that it's 7 pm."
     # play "phone_notification.ogg"
@@ -276,6 +284,7 @@ label after_test:
     mc "{i}(I do feel more rested, and for once I’m ahead on my work... maybe I should go out.){\i}"
     "He texts Jason back: \"Ya man see you soon.\""
     #Transition to Sorority scene
+    scene party start
     "Kaleb knocks on the door and is greeted by the twins Sydnee and Ellie."
     sne "Hey, Kaleb! Come in, drinks are in the back corner.
     You can find your friend Jason nursing the keg stand."
@@ -293,6 +302,7 @@ label after_test:
     "Kaleb starts to make his rounds around the party but with every drink his vision starts to get hazier and things make less sense."
     jump drunk_text
 label chp_1_party:
+    scene concerned friend
     "At this point [mc.name] doesn’t even remember the girl he’s talking to."
     an "Hey, are you okay? You don’t look so hot."
     menu:

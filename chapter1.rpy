@@ -91,7 +91,7 @@ label second_test:
         "The peppered moth evolved camouflage in response to humans altering the environment":
             "Yeah, they got darker when the industrial revolution made the trees sooty and they got lighter when environmental protection policies were enacted."
             $ boy.intelligence += 5
-    jump after_test
+    jump after_test_2
 
 init -2:
     screen letter_a:
@@ -380,6 +380,8 @@ init -2:
             pos positions[25]
     screen right_z:
         add "letter z" xpos 180 ypos 627
+    screen empty_keyboard:
+        add "keyboard" xpos 0 ypos 350
     screen clear_keys:
         imagebutton:
             idle "gui/frame.png"
@@ -392,9 +394,14 @@ init -2:
                     SetDict(key_flags, "s", False), SetDict(key_flags, "t", False), SetDict(key_flags, "u", False),
                     SetDict(key_flags, "v", False), SetDict(key_flags, "w", False), SetDict(key_flags, "x", False),
                     SetDict(key_flags, "y", False), SetDict(key_flags, "z", False)]
-            pos (0.9, 0.9)
+            pos (0.9, 0.85)
+
 label drunk_text:
     window hide
+    scene drunk typing
+    "You lost control and went a little overboard there. Unfortunately you have an urgent text to send!"
+    "Click on the bouncing letters to fill the keyboard. Each letter will affect several other letters, so be careful!"
+    "When you make a mistake use the blue button to clear the keyboard."
     python:
         event_check=False
         config.rollback_enabled=False
@@ -406,6 +413,9 @@ label drunk_text:
         for letter in letters:
             key_flags[letter] = False
             renpy.show_screen("letter_" + letter)
+        renpy.show("hint1")
+        hintTimer = 0
+        renpy.show_screen("empty_keyboard")
         renpy.show_screen("clear_keys")
         while False in key_flags.values():
             for i in range(0, 26):
@@ -430,6 +440,16 @@ label drunk_text:
                 else:
                     renpy.show_screen("right_" + letters[i])
                     renpy.hide_screen("letter_" + letters[i])
+            if hintTimer > 1000:
+                renpy.show("hint2")
+            if hintTimer > 5000:
+                renpy.show("hint3")
+            hintTimer += 1
             renpy.pause(0.01)
+        for l in letters:
+            renpy.hide_screen("right_" + l)
+            renpy.hide_screen("letter_" + l)
+        renpy.hide_screen("empty_keyboard")
+        renpy.hide_screen("clear_keys")
     window show
     jump chp_1_party

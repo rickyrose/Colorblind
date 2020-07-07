@@ -128,8 +128,24 @@ init:
 
     image help_title=Text("Help", style="title")
 
+#Chapter 1 backgrounds
+image rain dream = "bg/0.png"
+image dozing = "bg/1.png"
+image teacher staring = "bg/2.png"
+image tiger king = "bg/4.png"
+image tiger bench = "bg/5.png"
+image dorm enter = "bg/enterDorm.png"
+image dorm bed = "bg/bedtime.png"
+image party start = "bg/6.png"
+image drunk typing = "bg/9.png"
+image concerned friend = "bg/7.png"
+
 #Letters used in texting minigame
 init:
+    image keyboard = "gui/why.png"
+    image hint1 = Text("If you make a mistake go ahead and hit the \"clear\" button", xalign=0.01, ypos=20)
+    image hint2 = Text("I should use all of the letters", xalign=0.01, ypos=40)
+    image hint3 = Text("I remember a sentence about a jumping fox...", xalign=0.01, ypos=60)
     image letter a = "images/a.png"
     image letter b = "images/b.png"
     image letter c = "images/c.png"
@@ -156,7 +172,8 @@ init:
     image letter x = "images/x.png"
     image letter y = "images/y.png"
     image letter z = "images/z.png"
-    
+
 # Background image used as placeholder for testing purposes
 image bg park = "bg/ParkDuckless.jpg"
 image bg party = "bg/9.png"
+image bg room test = "bg/testing.png"

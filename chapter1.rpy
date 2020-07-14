@@ -396,7 +396,7 @@ init -2:
         add "keyboard" xpos 0 ypos 350
     screen clear_keys:
         imagebutton:
-            idle "gui/frame.png"
+            idle "gui/resetbutton.png"
             action [SetDict(key_flags, "a", False), SetDict(key_flags, "b", False), SetDict(key_flags, "c", False),
                     SetDict(key_flags, "d", False), SetDict(key_flags, "e", False), SetDict(key_flags, "f", False),
                     SetDict(key_flags, "g", False), SetDict(key_flags, "h", False), SetDict(key_flags, "i", False),

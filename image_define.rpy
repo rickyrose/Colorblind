@@ -143,9 +143,9 @@ image concerned friend = "bg/7.png"
 #Letters used in texting minigame
 init:
     image keyboard = "gui/why.png"
-    image hint1 = Text("If you make a mistake go ahead and hit the \"clear\" button", xalign=0.01, ypos=20)
-    image hint2 = Text("I should use all of the letters", xalign=0.01, ypos=40)
-    image hint3 = Text("I remember a sentence about a jumping fox...", xalign=0.01, ypos=60)
+    image hint1 = Text("If you make a mistake go ahead and hit the \"clear\" button", xalign=0.01, ypos=40)
+    image hint2 = Text("I should use all of the letters", xalign=0.01, ypos=60)
+    image hint3 = Text("I remember a sentence about a jumping fox...", xalign=0.01, ypos=80)
     image letter a = "images/a.png"
     image letter b = "images/b.png"
     image letter c = "images/c.png"

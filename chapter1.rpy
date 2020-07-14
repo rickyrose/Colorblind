@@ -6,6 +6,7 @@ init -2 python:
 label first_test:
     "[mc.name] received his first test of the day: Biochemistry."
     "He looked at the first question on the test."
+    window hide
     menu:
         "What chemical is used as energy in the cell?"
         "ATP":
@@ -18,8 +19,10 @@ label first_test:
             $ boy.intelligence += 1
         "Mitochondria":
             "The powerhouse of the cell, of course."
+    window show
     mc "{i}OK, that was a tough one but most of these are pretty easy.{\i}"
     mc "{i}Hmm. This one's a little tricky though."
+    window hide
     menu:
         "Is the cell membrane hydrophobic or hydrophillic?"
         "Hydrophobic":
@@ -33,7 +36,9 @@ label first_test:
         "Both":
             "Cell membranes are made of two layers of lipids, with a hydrophobic head and hydrophillic tails."
             $ boy.intelligence += 5
+    window show
     mc "{i}Nearly finished. Just one question still stumping me...{\i}"
+    window hide
     menu:
         "How many amino acids can human cells synthesize?"
         "22":
@@ -47,10 +52,12 @@ label first_test:
             $ boy.intelligence += 5
         "4":
             "There are 4 types of rungs in the DNA ladder, which must mean there are 4 amino acids."
+    window show
     mc "{i}All done. And just in time, too.{\i}"
     # jump after_test
 label second_test:
     "[mc.name] received his second test of the day: Genetics."
+    window hide
     menu:
         "What is the proper way of indicating that an individual is a carrier of a recessive allele?"
         "AA":
@@ -63,8 +70,10 @@ label second_test:
         "aa":
             "I recall something similar for blue eyes. Those are recessive traits."
             $ boy.intelligence += 1
+    window show
     mc "{i}That one was pretty easy. I hope the rest are like this.{\i}"
     mc "{i}Hey, that question looks pretty easy.{\i}"
+    window hide
     menu:
         "What are the 4 letters used to represent the nucleotides in RNA?"
         "ABCD":
@@ -77,8 +86,10 @@ label second_test:
             $ boy.intelligence += 5
         "GCRT":
             "The A is replaced by an R because it's RNA."
+    window show
     "[mc.name] continued answering questions. He started to slow as he felt the effects of the caffeine fading."
     mc "{i}Wow, I am getting pretty tired. I feel like I should know the answer to this question...{\i}"
+    window hide
     menu:
         "What how did the peppered moth evolve due to human influence?"
         "Humans domesticated the moths, making them larger and more docile":
@@ -91,6 +102,7 @@ label second_test:
         "The peppered moth evolved camouflage in response to humans altering the environment":
             "Yeah, they got darker when the industrial revolution made the trees sooty and they got lighter when environmental protection policies were enacted."
             $ boy.intelligence += 5
+    window show
     jump after_test_2
 
 init -2:

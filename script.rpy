@@ -320,6 +320,7 @@ label chp_1_party:
     "He reaches out with the strangest sense of deja vu."
     "Maybe it was the beer finally getting ahead of him or him just being overwhelmed but he collapses onto the street floor."
     "He opens his eyes one last time to see her standing over him and swears she could see a little glow in her eyes."
+    jump the_end
 
     #Maze Events
 label event_a:
@@ -541,3 +542,6 @@ label dungeon6:
     $ here = Position(stage6, 5, 1, 0, 1, 6)
     call pre_dungeon
     jump dungeon
+
+label the_end:
+    scene black

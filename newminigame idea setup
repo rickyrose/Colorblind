@@ -1,0 +1,20 @@
+To run these games you need to copy/paste the code (in script.rpy or in separate rpy-file), then you can add a mainmenu button to run it
+textbutton "MiniGame" action Start ("numbers_game") # name of mini-game label
+or call the game label to play it midgame
+    menu:
+        "Numbers":
+            call numbers_game
+        "Memoria":
+            call memoria_game
+        "Find the differences":
+            call differences_game
+        "Fifteen game":
+            call fifteen_game
+        "Simple battle game":
+            call battle_game_1
+        "Group battle game":
+            call battle_game_2
+        "Race game":
+            call race_game
+        "Tower of Hanoi":
+            hanoi_game(blocks_number=8) # pass the desireble number of blocks
